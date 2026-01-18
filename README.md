@@ -12,17 +12,25 @@ Portifolio/
 │   │   └── main.css    # Estilos globais
 │   ├── js/              # Arquivo JavaScript
 │   │   ├── main.js         # Ponto de entrada
-│   │   ├── theme.js        # Gerenciador de temas
+│   │   ├── theme-toggle.js # Alternância de tema (dark/light)
 │   │   ├── navigation.js   # Gerenciador de navegação
+│   │   ├── menu-mobile.js  # Menu mobile responsivo
+│   │   ├── certifications.js # Certificações dinâmicas
 │   │   └── config-manager.js # Gerenciador de config
 │   └── config/
-│       └── config.js    # Configurações centralizadas
+│       ├── config.js         # Configurações centralizadas
+│       └── certifications.js # Dados de certificações
 ├── assets/
 │   ├── images/          # Imagens do portfólio
-│   └── icons/          # Ícones SVG
+│   │   └── profile/     # Foto de perfil
+│   │   └── atenaai/     # Imagens do projeto AtenaAI
+│   │   └── certificacoes/ # Imagens de certificações
+│   │   └── logos/       # Logos diversas
+│   └── icons/           # Ícones SVG
 ├── index.html           # Página principal
+├── AtenaAI.html         # Página do projeto AtenaAI
 ├── package.json         # Configuração do projeto
-└── README.md           # Este arquivo
+└── README.md            # Este arquivo
 ```
 
 ## 🎯 Recursos
@@ -50,8 +58,12 @@ Portifolio/
 # Clone ou navegue até o diretório
 cd Portifolio
 
+
 # Inicie um servidor local
+npm start
+# ou
 python -m http.server 8000
+
 
 # Abra no navegador
 http://localhost:8000
@@ -59,7 +71,7 @@ http://localhost:8000
 
 ### Personalização
 
-Edite o arquivo `src/config/config.js` para atualizar:
+Edite os arquivos em `src/config/` para atualizar:
 - Informações pessoais
 - Skills e porcentagens
 - Redes sociais
@@ -75,6 +87,18 @@ Edite o arquivo `src/config/config.js` para atualizar:
 6. **Certificações** - Qualificações
 7. **Contato** - Informações de contato
 8. **Footer** - Rodapé com créditos
+
+## 📦 Scripts npm
+
+- `npm start` — inicia servidor local na porta 8000
+- `npm run dev` — inicia servidor local na porta 3000
+- `npm run build` — placeholder
+- `npm test` — placeholder
+
+## ⚠️ Observações
+
+- O arquivo `assets/curriculo.pdf` não está presente no repositório. Adicione seu currículo para habilitar o botão de download.
+- O branch principal deste projeto pode ser diferente. Você está atualmente no branch `recuperacao-arquivos-locais`.
 
 ## 🎨 Personalização de Cores
 
