@@ -37,12 +37,12 @@ body {
 
 /* Scrollbar ultra discreta */
 /* Forçar scrollbar escura no modo dark em todos os contextos */
-html.dark-mode ::-webkit-scrollbar-thumb,
-body.dark-mode ::-webkit-scrollbar-thumb,
-html.dark-mode::-webkit-scrollbar-thumb,
-body.dark-mode::-webkit-scrollbar-thumb,
-.dark-mode ::-webkit-scrollbar-thumb,
-.dark-mode::-webkit-scrollbar-thumb {
+ ::-webkit-scrollbar-thumb,
+ ::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb,
+::-webkit-scrollbar-thumb,
+.dark ::-webkit-scrollbar-thumb,
+.dark::-webkit-scrollbar-thumb {
   background: rgba(20,40,30,0.55) !important;
   border-radius: 8px !important;
   border: none !important;
@@ -50,25 +50,25 @@ body.dark-mode::-webkit-scrollbar-thumb,
   transition: background 0.2s;
 }
 
-html.dark-mode ::-webkit-scrollbar-thumb:hover,
-body.dark-mode ::-webkit-scrollbar-thumb:hover,
-html.dark-mode::-webkit-scrollbar-thumb:hover,
-body.dark-mode::-webkit-scrollbar-thumb:hover,
-.dark-mode ::-webkit-scrollbar-thumb:hover,
-.dark-mode::-webkit-scrollbar-thumb:hover {
+ ::-webkit-scrollbar-thumb:hover,
+ ::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:hover,
+.dark ::-webkit-scrollbar-thumb:hover,
+.dark::-webkit-scrollbar-thumb:hover {
   background: rgba(16,185,129,0.18) !important;
 }
 
-html.dark-mode ::-webkit-scrollbar-track,
-body.dark-mode ::-webkit-scrollbar-track,
-html.dark-mode::-webkit-scrollbar-track,
-body.dark-mode::-webkit-scrollbar-track,
-.dark-mode ::-webkit-scrollbar-track,
-.dark-mode::-webkit-scrollbar-track {
+ ::-webkit-scrollbar-track,
+ ::-webkit-scrollbar-track,
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track,
+.dark ::-webkit-scrollbar-track,
+.dark::-webkit-scrollbar-track {
   background: transparent !important;
 }
 
-html.dark-mode, body.dark-mode, .dark-mode {
+, , .dark {
   scrollbar-color: rgba(20,40,30,0.55) transparent !important;
 }
 ::-webkit-scrollbar {
@@ -92,19 +92,19 @@ html {
   scrollbar-width: thin;
   scrollbar-color: rgba(80,80,80,0.07) transparent;
 }
-html.dark-mode ::-webkit-scrollbar-thumb,
-.dark-mode ::-webkit-scrollbar-thumb {
+ ::-webkit-scrollbar-thumb,
+.dark ::-webkit-scrollbar-thumb {
   background: rgba(20,40,30,0.45) !important;
 }
-html.dark-mode ::-webkit-scrollbar-thumb:hover,
-.dark-mode ::-webkit-scrollbar-thumb:hover {
+ ::-webkit-scrollbar-thumb:hover,
+.dark ::-webkit-scrollbar-thumb:hover {
   background: rgba(16,185,129,0.18) !important;
 }
-html.dark-mode ::-webkit-scrollbar-track,
-.dark-mode ::-webkit-scrollbar-track {
+ ::-webkit-scrollbar-track,
+.dark ::-webkit-scrollbar-track {
   background: transparent !important;
 }
-html.dark-mode, .dark-mode {
+, .dark {
   scrollbar-color: rgba(20,40,30,0.45) transparent !important;
 }
 
@@ -127,6 +127,10 @@ html.dark-mode, .dark-mode {
 
 .gradient-bg {
   background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 50%, #fafafa 100%);
+}
+
+.dark .gradient-bg {
+  background: linear-gradient(135deg, #000000 0%, #001a0d 50%, #000000 100%) !important;
 }
 
 /* Code Card - Modo Claro */
@@ -255,17 +259,17 @@ html.dark-mode, .dark-mode {
 }
 
 /* Dark Mode */
-.dark-mode {
+.dark {
   background: linear-gradient(135deg, #000000 0%, #001a0d 50%, #000000 100%) !important;
 }
 
-.dark-mode .glass-card {
+.dark .glass-card {
   background: rgba(10, 10, 10, 0.8);
   border: 1px solid rgba(0, 255, 136, 0.2);
   box-shadow: 0 4px 20px rgba(0, 255, 136, 0.1);
 }
 
-.dark-mode .card-hover:hover {
+.dark .card-hover:hover {
   box-shadow: 0 20px 40px rgba(0, 255, 136, 0.4), 0 0 20px rgba(0, 255, 136, 0.3);
   border-color: rgba(0, 255, 136, 0.5);
 }
@@ -273,52 +277,52 @@ html.dark-mode, .dark-mode {
 /* Scrollbar Dark Mode */
 /* Scrollbar Dark Mode - removido para evitar conflito e garantir cor escura discreta */
 
-.dark-mode .text-slate-800,
-.dark-mode .text-gray-800 {
+.dark .text-slate-800,
+.dark .text-gray-800 {
   color: #00ff88 !important;
   text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
 }
 
-.dark-mode .text-slate-600,
-.dark-mode .text-gray-600 {
+.dark .text-slate-600,
+.dark .text-gray-600 {
   color: #a0ffd4 !important;
 }
 
-.dark-mode .text-slate-700,
-.dark-mode .text-gray-700 {
+.dark .text-slate-700,
+.dark .text-gray-700 {
   color: #00ffcc !important;
 }
 
-.dark-mode .text-slate-500,
-.dark-mode .text-gray-500 {
+.dark .text-slate-500,
+.dark .text-gray-500 {
   color: #66ffaa !important;
 }
 
-.dark-mode .text-gray-400 {
+.dark .text-gray-400 {
   color: #55dd99 !important;
 }
 
-.dark-mode .bg-slate-200,
-.dark-mode .bg-gray-100 {
+.dark .bg-slate-200,
+.dark .bg-gray-100 {
   background-color: #001a0d !important;
 }
 
-.dark-mode .border-slate-200,
-.dark-mode .border-gray-200,
-.dark-mode .border-gray-300 {
+.dark .border-slate-200,
+.dark .border-gray-200,
+.dark .border-gray-300 {
   border-color: rgba(0, 255, 136, 0.3) !important;
 }
 
-.dark-mode .nav-link {
+.dark .nav-link {
   color: #00ffcc;
 }
 
-.dark-mode .nav-link:hover {
+.dark .nav-link:hover {
   color: #00ff88;
   text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
 }
 
-.dark-mode .gradient-text {
+.dark .gradient-text {
   background: linear-gradient(135deg, #00ff88 0%, #00ffcc 50%, #00ff88 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -327,70 +331,70 @@ html.dark-mode, .dark-mode {
 }
 
 /* Ícones das categorias no dark mode */
-.dark-mode .text-emerald-600,
-.dark-mode .text-purple-600,
-.dark-mode .text-blue-600,
-.dark-mode .text-orange-600,
-.dark-mode .text-indigo-600 {
+.dark .text-emerald-600,
+.dark .text-purple-600,
+.dark .text-blue-600,
+.dark .text-orange-600,
+.dark .text-indigo-600 {
   color: #00ff88 !important;
 }
 
 /* Code Card - Dark Mode */
-.dark-mode .code-card {
+.dark .code-card {
   background: #000000;
   border: 1px solid rgba(0, 255, 136, 0.3);
   box-shadow: 0 0 30px rgba(0, 255, 136, 0.15);
 }
 
-.dark-mode .code-card-header {
+.dark .code-card-header {
   background: #000000;
   border-bottom: 1px solid rgba(0, 255, 136, 0.2);
 }
 
-.dark-mode .code-card-body {
+.dark .code-card-body {
   color: #a0ffd4;
 }
 
-.dark-mode .code-keyword {
+.dark .code-keyword {
   color: #ff79c6;
 }
 
-.dark-mode .code-variable {
+.dark .code-variable {
   color: #00ffcc;
 }
 
-.dark-mode .code-property {
+.dark .code-property {
   color: #00ffcc;
 }
 
-.dark-mode .code-string {
+.dark .code-string {
   color: #fbbf24;
 }
 
-.dark-mode .code-boolean {
+.dark .code-boolean {
   color: #00ff88;
   text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
 }
 
 /* Hero social icons dark mode */
-.dark-mode .hero-social-icon {
+.dark .hero-social-icon {
   color: #66ffaa !important;
 }
 
-.dark-mode .hero-social-icon:hover {
+.dark .hero-social-icon:hover {
   color: #00ff88 !important;
 }
 
 /* Botão currículo dark mode */
-.dark-mode .border-emerald-500 {
+.dark .border-emerald-500 {
   border-color: #00ff88 !important;
 }
 
-.dark-mode .text-emerald-600 {
+.dark .text-emerald-600 {
   color: #00ff88 !important;
 }
 
-.dark-mode .hover\:bg-emerald-500:hover {
+.dark .hover\:bg-emerald-500:hover {
   background-color: #00ff88 !important;
   color: #000000 !important;
 }
@@ -414,3 +418,67 @@ html.dark-mode, .dark-mode {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* === Scrollbar Dark Final Override === */
+.dark::-webkit-scrollbar-thumb {
+  background: rgba(20,40,30,0.55) !important;
+}
+
+.dark::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.dark {
+  scrollbar-color: rgba(20,40,30,0.55) transparent !important;
+}
+
+/* === Mobile Menu Dark Fix === */
+
+/* Overlay escuro ao abrir menu */
+#mobile-overlay {
+  background: rgba(0,0,0,0.6);
+}
+
+.dark #mobile-overlay {
+  background: rgba(0,0,0,0.8);
+}
+
+/* Painel lateral do menu */
+.mobile-menu-panel {
+  background: white;
+}
+
+.dark .mobile-menu-panel {
+  background: #020617; /* slate-950 */
+  border-left: 1px solid rgba(0,255,136,0.2);
+}
+
+/* Ícone hambúrguer visível sempre */
+#mobile-menu-button {
+  background-color: white;
+}
+
+.dark #mobile-menu-button {
+  background-color: #1e293b; /* slate-800 */
+  color: #f8fafc;
+  border-color: #334155;
+}
+
+/* Garante que o menu mobile fica acima do header */
+#mobile-menu {
+  z-index: 9999;
+}
+
+/* Garante que o header não sobrepõe o menu */
+nav {
+  z-index: 50;
+}
+
+#mobile-menu {
+  z-index: 9999;
+}
+
+nav {
+  z-index: 50;
+}
+

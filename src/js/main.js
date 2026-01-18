@@ -1,8 +1,12 @@
+console.log("MAIN.JS CARREGOU ✔️");
+
 // Arquivo principal de inicialização
-import { ThemeManager } from './theme.js';
+import { initMobileMenu } from './menu-mobile.js';
+import { ThemeManager } from './theme-toggle.js';
 import { NavigationManager } from './navigation.js';
 import { ConfigManager } from './config-manager.js';
 import { CertificationsManager } from './certifications.js';
+
 
 class Portfolio {
   constructor() {
@@ -11,6 +15,8 @@ class Portfolio {
     this.configManager = new ConfigManager();
     this.certificationsManager = new CertificationsManager();
     
+initMobileMenu();
+
     this.init();
   }
 
@@ -20,7 +26,6 @@ class Portfolio {
   }
 
   initializeSDK() {
-    // Integração com Element SDK (se disponível)
     if (window.elementSdk) {
       const config = this.configManager.getConfig();
       
@@ -35,34 +40,26 @@ class Portfolio {
 
   mapToCapabilities(config) {
     return {
-      recolorables: [
-        {
-          get: () => config.primary_color || '#10b981',
-          set: (value) => {
-            config.primary_color = value;
-            if (window.elementSdk) {
-              window.elementSdk.setConfig({ primary_color: value });
-            }
-          }
+      recolorables: [{
+        get: () => config.primary_color || '#10b981',
+        set: (value) => {
+          config.primary_color = value;
+          window.elementSdk?.setConfig({ primary_color: value });
         }
-      ],
+      }],
       borderables: [],
       fontEditable: {
         get: () => config.font_family || 'Space Grotesk',
         set: (value) => {
           config.font_family = value;
-          if (window.elementSdk) {
-            window.elementSdk.setConfig({ font_family: value });
-          }
+          window.elementSdk?.setConfig({ font_family: value });
         }
       },
       fontSizeable: {
         get: () => config.font_size || 16,
         set: (value) => {
           config.font_size = value;
-          if (window.elementSdk) {
-            window.elementSdk.setConfig({ font_size: value });
-          }
+          window.elementSdk?.setConfig({ font_size: value });
         }
       }
     };
@@ -81,13 +78,9 @@ class Portfolio {
   }
 }
 
-// Inicializar quando DOM estiver pronto
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => {
-    window.portfolio = new Portfolio();
-  });
-} else {
+// Inicialização
+document.addEventListener('DOMContentLoaded', () => {
   window.portfolio = new Portfolio();
-}
+});
 
 export default Portfolio;

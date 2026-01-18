@@ -2,8 +2,11 @@
 <html lang="pt-BR" class="h-full">
  <head>
   <meta charset="UTF-8">
+  <!-- Favicon padrão .ico -->
+  <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AtenaAI - Assistente Educacional Inteligente</title>
+<title>AtenaAI — IA Acadêmica para aprendizado responsável</title>
+<meta name="description" content="AtenaAI é uma plataforma educacional com Inteligência Artificial projetada para apoiar estudantes no aprendizado de forma ética, transparente e responsável.">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="/_sdk/element_sdk.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,11 +79,17 @@
             <img src="assets/icons/atenaai-logo.png" alt="Logo AtenaAI" class="w-36 h-36 object-contain" />
           </div>
         </div>
-        <h1 id="hero-title" class="text-5xl md:text-6xl font-bold mb-6 text-emerald-900">AtenaAI — Sua Assistente de Estudos Inteligente</h1>
-        <p id="hero-subtitle" class="text-xl mb-8 text-emerald-800">Plataforma educacional com IA para transformar sua forma de aprender.</p>
+      <h1 id="hero-title" class="text-5xl md:text-6xl font-bold mb-6 text-emerald-900">
+AtenaAI — IA Acadêmica que apoia o aprendizado de forma responsável
+</h1>
+
+<p id="hero-subtitle" class="text-xl mb-8 text-emerald-800">
+Uma plataforma educacional com Inteligência Artificial projetada para auxiliar estudantes no processo de aprendizagem — sem substituir o raciocínio ou o papel do professor.
+</p>
+
         <div class="flex gap-4 flex-wrap justify-center lg:justify-start">
-          <a href="https://svfaca.github.io/AtenaAi-Pages/" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 bg-emerald-600 text-white hover:bg-emerald-700">Ver App</a>
-          <a href="https://github.com/svfaca/AtenaAI" target="_blank" rel="noopener noreferrer" class="px-8 py-3 bg-white rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 text-emerald-700 border-2 border-emerald-400 hover:bg-emerald-50">GitHub</a>
+          <a id="cta-primary" href="https://svfaca.github.io/AtenaAi-Pages/" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 bg-emerald-600 text-white hover:bg-emerald-700">Ver App</a>
+          <a id="cta-secondary" href="https://github.com/svfaca/AtenaAI" target="_blank" rel="noopener noreferrer" class="px-8 py-3 bg-white rounded-lg font-semibold text-lg transition-all duration-300 hover:scale-105 text-emerald-700 border-2 border-emerald-400 hover:bg-emerald-50">GitHub</a>
         </div>
       </div>
       <!-- Lado Direito - Print da Tela Inicial -->
@@ -93,7 +102,37 @@
       </div>
     </div>
   </section>
-   <section class="w-full py-20 px-6" style="background: #1e293b;">
+   <section class="w-full py-20 px-6" style="background:#0f172a;">
+  <div class="max-w-5xl mx-auto text-center">
+
+    <h2 class="text-4xl md:text-5xl font-bold mb-8" style="color:#f1f5f9;">
+      O problema atual no uso de IA na educação
+    </h2>
+
+    <p class="text-xl mb-6" style="color:#cbd5e1;">
+      A Inteligência Artificial generativa chegou ao ambiente acadêmico —  
+      mas seu uso ainda é incerto e mal definido.
+    </p>
+
+    <div class="text-lg leading-relaxed space-y-3" style="color:#94a3b8;">
+      <p>• Em algumas instituições, o uso de IA é proibido.</p>
+      <p>• Em outras, é ignorado.</p>
+      <p>• Em muitas, é utilizado sem critérios claros.</p>
+    </div>
+
+    <p class="text-xl mt-8 font-semibold" style="color:#f1f5f9;">
+      O resultado? Professores inseguros, estudantes dependentes de respostas prontas  
+      e aprendizado comprometido.
+    </p>
+
+    <p class="text-2xl mt-6 font-bold" style="color:#34d399;">
+      A AtenaAI foi criada para mudar esse cenário.
+    </p>
+
+  </div>
+</section>
+
+<section class="w-full py-20 px-6" style="background:#1e293b;">
     <div class="max-w-6xl mx-auto text-center">
      <div class="mb-12 flex justify-center">
       <svg width="80" height="80" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="35" r="20" fill="none" stroke="#8b5cf6" stroke-width="3" /> <path d="M 30 35 Q 35 25 50 25 Q 65 25 70 35" fill="none" stroke="#6366f1" stroke-width="2" /> <path d="M 35 40 L 30 50 M 45 40 L 40 50 M 55 40 L 60 50 M 65 40 L 70 50" stroke="#8b5cf6" stroke-width="2" /> <circle cx="40" cy="32" r="3" fill="#6366f1" /> <circle cx="60" cy="32" r="3" fill="#6366f1" /> <path d="M 20 60 L 30 70 L 50 55 L 70 70 L 80 60" fill="none" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" /> <circle cx="20" cy="60" r="4" fill="#6366f1" /> <circle cx="50" cy="55" r="4" fill="#6366f1" /> <circle cx="80" cy="60" r="4" fill="#6366f1" />
@@ -105,7 +144,8 @@
    </section><!-- Features Section -->
    <section class="w-full py-20 px-6" style="background: #0f172a;">
     <div class="max-w-6xl mx-auto">
-     <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" style="color: #f1f5f9;">Principais Features</h2>
+     <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" style="color: #f1f5f9;">Como a AtenaAI ajuda no seu aprendizado
+      </h2>
      <div class="grid md:grid-cols-3 gap-8"><!-- Feature 1 -->
       <div class="card-hover p-8 rounded-xl" style="background: #1e293b; border: 2px solid #334155;">
        <div class="mb-4">
@@ -157,7 +197,16 @@
       </div>
      </div>
     </div>
-   </section><!-- Technologies Section -->
+    </section>
+       <section class="w-full py-12 px-6" style="background:#0f172a;">
+  <div class="max-w-4xl mx-auto text-center">
+    <p class="text-lg" style="color:#cbd5e1;">
+      Arquitetura modular baseada em API REST, autenticação segura  
+      e persistência de conversas em banco de dados.
+    </p>
+  </div>
+</section>
+
    <section class="w-full py-20 px-6" style="background: #1e293b;">
     <div class="max-w-6xl mx-auto">
      <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" style="color: #f1f5f9;">Tecnologias</h2>
@@ -183,7 +232,7 @@
         🤖
        </div>
        <div class="font-semibold" style="color: #f1f5f9;">
-        OpenAI GPT
+        LLM API
        </div>
       </div>
       <div class="tech-badge p-6 rounded-xl text-center" style="background: #0f172a; border: 2px solid #334155;">
@@ -213,21 +262,28 @@
      </div>
     </div>
    </section><!-- Future Vision Section -->
-   <section class="w-full py-20 px-6 gradient-bg">
-    <div class="max-w-4xl mx-auto text-center text-white">
-     <h2 class="text-4xl md:text-5xl font-bold mb-8 glow-text">Visão Futura</h2>
-     <p class="text-xl leading-relaxed">Expansão para salas de aula virtuais, professores, instituições e feedbacks personalizados por IA.</p>
-    </div>
-   </section><!-- CTA Section -->
-   <section class="w-full py-20 px-6" style="background: #0f172a;">
-    <div class="max-w-4xl mx-auto text-center">
-     <h2 class="text-4xl md:text-5xl font-bold mb-8" style="color: #f1f5f9;">Explore o projeto no GitHub ou veja a demonstração</h2>
-     <div class="flex gap-6 justify-center flex-wrap"><button class="px-10 py-4 rounded-lg font-semibold text-xl transition-all duration-300" style="background: #6366f1; color: white;"> GitHub </button> <button class="px-10 py-4 rounded-lg font-semibold text-xl transition-all duration-300" style="background: #8b5cf6; color: white;"> Live App </button>
-     </div>
-    </div>
-   </section><!-- Footer -->
+   <section class="w-full py-20 px-6" style="background:#0f172a;">
+  <div class="max-w-4xl mx-auto text-center">
+
+    <h2 class="text-4xl md:text-5xl font-bold mb-6" style="color:#f1f5f9;">
+      Pronto para estudar com IA de forma responsável?
+    </h2>
+
+    <p class="text-xl mb-8" style="color:#94a3b8;">
+      🟢 Beta pública ativa — acesso imediato
+    </p>
+
+    <a href="https://svfaca.github.io/AtenaAi-Pages/" 
+       target="_blank"
+       class="px-10 py-4 rounded-lg font-semibold text-xl bg-emerald-600 text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-105">
+       Entrar na versão beta
+    </a>
+
+  </div>
+</section>
+
    <footer class="w-full py-8 px-6 text-center" style="background: #1e293b; border-top: 1px solid #334155;">
-    <p id="footer-text" class="mb-4 text-lg" style="color: #cbd5e1;">Projeto de portfólio — Sávio Emmanuel</p>
+<p id="footer-text">AtenaAI — Plataforma educacional com IA • Desenvolvido por Sávio Emmanuel</p>
     <div class="flex gap-6 justify-center">
       <a href="https://github.com/svfaca" target="_blank" rel="noopener noreferrer" class="transition-all duration-300" style="color: #6366f1; text-decoration: none;">GitHub</a>
       <a href="index.html" class="transition-all duration-300" style="color: #8b5cf6; text-decoration: none;">Portfólio</a>
@@ -235,22 +291,26 @@
    </footer>
   </div>
   <script>
-    const defaultConfig = {
-      background_color: "#0f172a",
-      surface_color: "#1e293b",
-      text_color: "#f1f5f9",
-      primary_action_color: "#6366f1",
-      secondary_action_color: "#8b5cf6",
-      font_family: "Space Grotesk",
-      font_size: 16,
-      hero_title: "AtenaAI — Sua Assistente de Estudos Inteligente",
-      hero_subtitle: "Plataforma educacional com IA para transformar sua forma de aprender.",
-      hero_cta_primary: "Ver App",
-      hero_cta_secondary: "GitHub",
-      about_title: "O que é a AtenaAI",
-      about_description: "AtenaAI é uma plataforma de assistente educacional inteligente, com chat em tempo real, gerenciamento de conversas e personalização por áreas de estudo.",
-      footer_text: "Projeto de portfólio — Sávio Emmanuel"
-    };
+const defaultConfig = {
+  background_color: "#0f172a",
+  surface_color: "#1e293b",
+  text_color: "#f1f5f9",
+  primary_action_color: "#6366f1",
+  secondary_action_color: "#8b5cf6",
+  font_family: "Space Grotesk",
+  font_size: 16,
+
+  hero_title: "AtenaAI — IA Acadêmica que apoia o aprendizado de forma responsável",
+  hero_subtitle: "Uma plataforma educacional com Inteligência Artificial projetada para auxiliar estudantes no processo de aprendizagem — sem substituir o raciocínio ou o papel do professor.",
+  hero_cta_primary: "Acessar versão beta",
+  hero_cta_secondary: "Ver GitHub",
+
+  about_title: "O que é a AtenaAI",
+  about_description: "AtenaAI é uma plataforma educacional inteligente que utiliza IA para apoiar estudantes em seus estudos. Em vez de entregar respostas prontas, a IA guia, explica e estimula o pensamento crítico, promovendo aprendizado real e responsável.",
+
+  footer_text: "AtenaAI — Plataforma educacional com IA | Desenvolvido por Sávio Emmanuel"
+};
+
 
     async function onConfigChange(config) {
       const baseFont = config.font_family || defaultConfig.font_family;
@@ -323,15 +383,6 @@
 
       // Update background colors
       document.body.style.background = backgroundColor;
-      
-      const sections = document.querySelectorAll('section');
-      sections.forEach((section, index) => {
-        if (index % 2 === 0) {
-          section.style.background = backgroundColor;
-        } else {
-          section.style.background = surfaceColor;
-        }
-      });
 
       // Update all headings
       const allHeadings = document.querySelectorAll('h2, h3');
@@ -356,7 +407,7 @@
       });
 
       // Update buttons in CTA section
-      const ctaButtons = document.querySelectorAll('section:nth-last-child(2) button');
+      const ctaButtons = document.querySelectorAll('section:nth-last-child(2) a');
       if (ctaButtons.length >= 2) {
         ctaButtons[0].style.background = primaryActionColor;
         ctaButtons[1].style.background = secondaryActionColor;

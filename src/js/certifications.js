@@ -12,7 +12,17 @@ export class CertificationsManager {
       softSkills: false,
       outros: false
     };
-    this.itemsPerPage = 3;
+    this.itemsPerPage = window.innerWidth < 768 ? 1 : 3;
+
+    // Atualiza itemsPerPage ao redimensionar a tela
+    window.addEventListener('resize', () => {
+      const newItemsPerPage = window.innerWidth < 768 ? 1 : 3;
+      if (newItemsPerPage !== this.itemsPerPage) {
+        this.itemsPerPage = newItemsPerPage;
+        this.renderCertifications();
+      }
+    });
+
     this.init();
   }
 

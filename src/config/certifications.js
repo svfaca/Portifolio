@@ -8,7 +8,7 @@ export const organizationLogos = {
   "Fundação Bradesco": "assets/images/logos/fbradesco.jpg",
   "Sebrae": "assets/images/logos/sebrae.jpg",
   "Serviço de Atendimento Móvel de Urgência -- SAMU região serrana": "assets/images/logos/samu.png",
-  "Associação CAMP Teresópolis": "assets/images/logos/camp.png"
+  "Associação CAMP Teresópolis": "assets/images/logos/CAMP.png"
 };
 
 // Configuração de Certificações
