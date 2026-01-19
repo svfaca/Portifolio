@@ -8,7 +8,6 @@
 <title>AtenaAI — IA Acadêmica para aprendizado responsável</title>
 <meta name="description" content="AtenaAI é uma plataforma educacional com Inteligência Artificial projetada para apoiar estudantes no aprendizado de forma ética, transparente e responsável.">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="/_sdk/element_sdk.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
@@ -57,8 +56,9 @@
     }
   </style>
   <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+
   <script type="module" src="src/js/atenaai-translate.js"></script>
+  <script type="module" src="src/js/atenaai-i18n.js"></script>
  </head>
  <body class="h-full w-full overflow-auto">
   <div class="w-full min-h-full" style="background: linear-gradient(135deg, #10b981 0%, #0f172a 100%);">
@@ -68,7 +68,7 @@
         <svg class="w-8 h-8 text-emerald-600 group-hover:text-emerald-800 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:inline-block;vertical-align:middle;">
           <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
-        <span class="ml-2 text-emerald-800 font-medium hidden sm:inline">Voltar para Portfólio</span>
+        <span class="ml-2 text-emerald-800 font-medium hidden sm:inline" data-i18n="back.portfolio">Voltar para Portfólio</span>
       </a>
     </div>
    <section class="min-h-screen flex items-center justify-center px-6 pt-32">
@@ -106,27 +106,26 @@
    <section class="w-full py-20 px-6" style="background:#0f172a;">
   <div class="max-w-5xl mx-auto text-center">
 
-    <h2 class="text-4xl md:text-5xl font-bold mb-8" style="color:#f1f5f9;">
+    <h2 class="text-4xl md:text-5xl font-bold mb-8" style="color:#f1f5f9;" data-i18n="problem.title">
       O problema atual no uso de IA na educação
     </h2>
 
-    <p class="text-xl mb-6" style="color:#cbd5e1;">
-      A Inteligência Artificial generativa chegou ao ambiente acadêmico —  
-      mas seu uso ainda é incerto e mal definido.
+    <p class="text-xl mb-6" style="color:#cbd5e1;" data-i18n="problem.desc">
+      A Inteligência Artificial generativa chegou ao ambiente acadêmico — mas seu uso ainda é incerto e mal definido.
     </p>
 
     <div class="text-lg leading-relaxed space-y-3" style="color:#94a3b8;">
-      <p>• Em algumas instituições, o uso de IA é proibido.</p>
-      <p>• Em outras, é ignorado.</p>
-      <p>• Em muitas, é utilizado sem critérios claros.</p>
+      <p data-i18n="problem.list.1">• Em algumas instituições, o uso de IA é proibido.</p>
+      <p data-i18n="problem.list.2">• Em outras, é ignorado.</p>
+      <p data-i18n="problem.list.3">• Em muitas, é utilizado sem critérios claros.</p>
     </div>
 
-    <p class="text-xl mt-8 font-semibold" style="color:#f1f5f9;">
+    <p class="text-xl mt-8 font-semibold" style="color:#f1f5f9;" data-i18n="problem.result">
       O resultado? Professores inseguros, estudantes dependentes de respostas prontas  
       e aprendizado comprometido.
     </p>
 
-    <p class="text-2xl mt-6 font-bold" style="color:#34d399;">
+    <p class="text-2xl mt-6 font-bold" style="color:#34d399;" data-i18n="problem.solution">
       A AtenaAI foi criada para mudar esse cenário.
     </p>
 
@@ -139,78 +138,75 @@
       <svg width="80" height="80" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="35" r="20" fill="none" stroke="#8b5cf6" stroke-width="3" /> <path d="M 30 35 Q 35 25 50 25 Q 65 25 70 35" fill="none" stroke="#6366f1" stroke-width="2" /> <path d="M 35 40 L 30 50 M 45 40 L 40 50 M 55 40 L 60 50 M 65 40 L 70 50" stroke="#8b5cf6" stroke-width="2" /> <circle cx="40" cy="32" r="3" fill="#6366f1" /> <circle cx="60" cy="32" r="3" fill="#6366f1" /> <path d="M 20 60 L 30 70 L 50 55 L 70 70 L 80 60" fill="none" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" /> <circle cx="20" cy="60" r="4" fill="#6366f1" /> <circle cx="50" cy="55" r="4" fill="#6366f1" /> <circle cx="80" cy="60" r="4" fill="#6366f1" />
       </svg>
      </div>
-     <h2 id="about-title" class="text-4xl md:text-5xl font-bold mb-6" style="color: #f1f5f9;">O que é a AtenaAI</h2>
-     <p id="about-description" class="text-xl max-w-3xl mx-auto" style="color: #cbd5e1;">AtenaAI é uma plataforma de assistente educacional inteligente, com chat em tempo real, gerenciamento de conversas e personalização por áreas de estudo.</p>
+    <h2 id="about-title" class="text-4xl md:text-5xl font-bold mb-6" style="color: #f1f5f9;" data-i18n="about.title">O que é a AtenaAI</h2>
+    <p id="about-description" class="text-xl max-w-3xl mx-auto" style="color: #cbd5e1;" data-i18n="about.description">AtenaAI é uma plataforma de assistente educacional inteligente, com chat em tempo real, gerenciamento de conversas e personalização por áreas de estudo.</p>
     </div>
    </section><!-- Features Section -->
    <section class="w-full py-20 px-6" style="background: #0f172a;">
     <div class="max-w-6xl mx-auto">
-     <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" style="color: #f1f5f9;">Como a AtenaAI ajuda no seu aprendizado
-      </h2>
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" style="color: #f1f5f9;" data-i18n="features.title">Como a AtenaAI ajuda no seu aprendizado
+     </h2>
      <div class="grid md:grid-cols-3 gap-8"><!-- Feature 1 -->
       <div class="card-hover p-8 rounded-xl" style="background: #1e293b; border: 2px solid #334155;">
        <div class="mb-4">
         <svg width="50" height="50" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="20" y="30" width="60" height="50" rx="5" fill="none" stroke="#6366f1" stroke-width="3" /> <path d="M 30 45 L 40 45 M 30 55 L 55 55 M 30 65 L 50 65" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" /> <circle cx="70" cy="50" r="8" fill="#8b5cf6" />
         </svg>
        </div>
-       <h3 class="text-2xl font-semibold mb-3" style="color: #f1f5f9;">Chat Inteligente</h3>
-       <p style="color: #94a3b8;">Interação em tempo real com IA avançada para responder suas dúvidas.</p>
+      <h3 class="text-2xl font-semibold mb-3" style="color: #f1f5f9;" data-i18n="features.1.title">Chat Inteligente</h3>
+      <p style="color: #94a3b8;" data-i18n="features.1.desc">Interação em tempo real com IA avançada para responder suas dúvidas.</p>
       </div><!-- Feature 2 -->
       <div class="card-hover p-8 rounded-xl" style="background: #1e293b; border: 2px solid #334155;">
        <div class="mb-4">
         <svg width="50" height="50" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="35" cy="50" r="20" fill="#6366f1" /> <circle cx="65" cy="50" r="20" fill="#1e293b" stroke="#8b5cf6" stroke-width="3" />
         </svg>
        </div>
-       <h3 class="text-2xl font-semibold mb-3" style="color: #f1f5f9;">Tema Claro / Escuro</h3>
-       <p style="color: #94a3b8;">Interface adaptável para estudo confortável em qualquer ambiente.</p>
+      <h3 class="text-2xl font-semibold mb-3" style="color: #f1f5f9;" data-i18n="features.2.title">Tema Claro / Escuro</h3>
+      <p style="color: #94a3b8;" data-i18n="features.2.desc">Interface adaptável para estudo confortável em qualquer ambiente.</p>
       </div><!-- Feature 3 -->
       <div class="card-hover p-8 rounded-xl" style="background: #1e293b; border: 2px solid #334155;">
        <div class="mb-4">
         <svg width="50" height="50" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="25" y="20" width="50" height="60" rx="3" fill="none" stroke="#6366f1" stroke-width="3" /> <path d="M 35 35 L 65 35 M 35 45 L 65 45 M 35 55 L 55 55" stroke="#8b5cf6" stroke-width="2" stroke-linecap="round" />
         </svg>
        </div>
-       <h3 class="text-2xl font-semibold mb-3" style="color: #f1f5f9;">Gestão de Conversas</h3>
-       <p style="color: #94a3b8;">Organize e revisite suas conversas anteriores facilmente.</p>
+      <h3 class="text-2xl font-semibold mb-3" style="color: #f1f5f9;" data-i18n="features.3.title">Gestão de Conversas</h3>
+      <p style="color: #94a3b8;" data-i18n="features.3.desc">Organize e revisite suas conversas anteriores facilmente.</p>
       </div><!-- Feature 4 -->
       <div class="card-hover p-8 rounded-xl" style="background: #1e293b; border: 2px solid #334155;">
        <div class="mb-4">
         <svg width="50" height="50" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="25" fill="none" stroke="#6366f1" stroke-width="3" /> <circle cx="50" cy="40" r="8" fill="none" stroke="#8b5cf6" stroke-width="3" /> <path d="M 50 50 L 50 65 M 43 58 L 50 65 L 57 58" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" fill="none" />
         </svg>
        </div>
-       <h3 class="text-2xl font-semibold mb-3" style="color: #f1f5f9;">Autenticação Segura</h3>
-       <p style="color: #94a3b8;">Login seguro para proteger seus dados e progresso.</p>
+      <h3 class="text-2xl font-semibold mb-3" style="color: #f1f5f9;" data-i18n="features.4.title">Autenticação Segura</h3>
+      <p style="color: #94a3b8;" data-i18n="features.4.desc">Login seguro para proteger seus dados e progresso.</p>
       </div><!-- Feature 5 -->
       <div class="card-hover p-8 rounded-xl" style="background: #1e293b; border: 2px solid #334155;">
        <div class="mb-4">
         <svg width="50" height="50" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect x="25" y="25" width="50" height="50" rx="8" fill="none" stroke="#6366f1" stroke-width="3" /> <path d="M 40 45 L 45 50 L 60 35" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round" fill="none" />
         </svg>
        </div>
-       <h3 class="text-2xl font-semibold mb-3" style="color: #f1f5f9;">UI Moderna</h3>
-       <p style="color: #94a3b8;">Design responsivo e intuitivo para uma experiência perfeita.</p>
+      <h3 class="text-2xl font-semibold mb-3" style="color: #f1f5f9;" data-i18n="features.5.title">UI Moderna</h3>
+      <p style="color: #94a3b8;" data-i18n="features.5.desc">Design responsivo e intuitivo para uma experiência perfeita.</p>
       </div><!-- Feature 6 -->
       <div class="card-hover p-8 rounded-xl" style="background: #1e293b; border: 2px solid #334155;">
        <div class="mb-4">
         <svg width="50" height="50" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="25" fill="none" stroke="#6366f1" stroke-width="3" /> <path d="M 50 30 L 50 50 L 65 50" stroke="#8b5cf6" stroke-width="3" stroke-linecap="round" /> <circle cx="50" cy="50" r="3" fill="#8b5cf6" />
         </svg>
        </div>
-       <h3 class="text-2xl font-semibold mb-3" style="color: #f1f5f9;">Personalização de Áreas</h3>
-       <p style="color: #94a3b8;">Adapte a plataforma às suas áreas de interesse e estudo.</p>
+      <h3 class="text-2xl font-semibold mb-3" style="color: #f1f5f9;" data-i18n="features.6.title">Personalização de Áreas</h3>
+      <p style="color: #94a3b8;" data-i18n="features.6.desc">Adapte a plataforma às suas áreas de interesse e estudo.</p>
       </div>
      </div>
     </div>
     </section>
        <section class="w-full py-12 px-6" style="background:#0f172a;">
   <div class="max-w-4xl mx-auto text-center">
-    <p class="text-lg" style="color:#cbd5e1;">
-      Arquitetura modular baseada em API REST, autenticação segura  
-      e persistência de conversas em banco de dados.
-    </p>
+    <p class="text-lg" style="color:#cbd5e1;" data-i18n="infra.desc">Arquitetura modular baseada em API REST, autenticação segura e persistência de conversas em banco de dados.</p>
   </div>
 </section>
 
    <section class="w-full py-20 px-6" style="background: #1e293b;">
     <div class="max-w-6xl mx-auto">
-     <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" style="color: #f1f5f9;">Tecnologias</h2>
+    <h2 class="text-4xl md:text-5xl font-bold text-center mb-16" style="color: #f1f5f9;" data-i18n="tech.title">Tecnologias</h2>
      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
       <div class="tech-badge p-6 rounded-xl text-center" style="background: #0f172a; border: 2px solid #334155;">
        <div class="text-2xl font-bold mb-2" style="color: #6366f1;">
@@ -266,25 +262,18 @@
    <section class="w-full py-20 px-6" style="background:#0f172a;">
   <div class="max-w-4xl mx-auto text-center">
 
-    <h2 class="text-4xl md:text-5xl font-bold mb-6" style="color:#f1f5f9;">
-      Pronto para estudar com IA de forma responsável?
-    </h2>
-
-    <p class="text-xl mb-8" style="color:#94a3b8;">
-      🟢 Beta pública ativa — acesso imediato
-    </p>
-
+    <h2 class="text-4xl md:text-5xl font-bold mb-6" style="color:#f1f5f9;" data-i18n="cta.title">Pronto para estudar com IA de forma responsável?</h2>
+    <p class="text-xl mb-8" style="color:#94a3b8;" data-i18n="cta.beta.desc">🟢 Beta pública ativa — acesso imediato</p>
     <a href="https://svfaca.github.io/AtenaAi-Pages/" 
        target="_blank"
-       class="px-10 py-4 rounded-lg font-semibold text-xl bg-emerald-600 text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-105">
-       Entrar na versão beta
-    </a>
+       class="px-10 py-4 rounded-lg font-semibold text-xl bg-emerald-600 text-white hover:bg-emerald-700 transition-all duration-300 hover:scale-105"
+       data-i18n="cta.beta">Entrar na versão beta</a>
 
   </div>
 </section>
 
    <footer class="w-full py-8 px-6 text-center" style="background: #1e293b; border-top: 1px solid #334155;">
-<p id="footer-text">AtenaAI — Plataforma educacional com IA • Desenvolvido por Sávio Emmanuel</p>
+<p id="footer-text" data-i18n="footer.text">AtenaAI — Plataforma educacional com IA • Desenvolvido por Sávio Emmanuel</p>
     <div class="flex gap-6 justify-center">
       <a href="https://github.com/svfaca" target="_blank" rel="noopener noreferrer" class="transition-all duration-300" style="color: #6366f1; text-decoration: none;">GitHub</a>
       <a href="index.html" class="transition-all duration-300" style="color: #8b5cf6; text-decoration: none;">Portfólio</a>
@@ -503,5 +492,5 @@ const defaultConfig = {
       });
     }
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9bf85f4366ece012',t:'MTc2ODY3OTMyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>

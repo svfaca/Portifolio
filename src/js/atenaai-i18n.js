@@ -7,10 +7,10 @@ export const translations = {
     "about.title": "O que é a AtenaAI",
     "about.description": "AtenaAI é uma plataforma de assistente educacional inteligente, com chat em tempo real, gerenciamento de conversas e personalização por áreas de estudo.",
     "problem.title": "O problema atual no uso de IA na educação",
-    "problem.p1": "A Inteligência Artificial generativa chegou ao ambiente acadêmico —  mas seu uso ainda é incerto e mal definido.",
-    "problem.l1": "Em algumas instituições, o uso de IA é proibido.",
-    "problem.l2": "Em outras, é ignorado.",
-    "problem.l3": "Em muitas, é utilizado sem critérios claros.",
+    "problem.desc": "A Inteligência Artificial generativa chegou ao ambiente acadêmico — mas seu uso ainda é incerto e mal definido.",
+    "problem.list.1": "Em algumas instituições, o uso de IA é proibido.",
+    "problem.list.2": "Em outras, é ignorado.",
+    "problem.list.3": "Em muitas, é utilizado sem critérios claros.",
     "problem.result": "O resultado? Professores inseguros, estudantes dependentes de respostas prontas  e aprendizado comprometido.",
     "problem.solution": "A AtenaAI foi criada para mudar esse cenário.",
     "features.title": "Como a AtenaAI ajuda no seu aprendizado",
@@ -30,7 +30,12 @@ export const translations = {
     "future.title": "Pronto para estudar com IA de forma responsável?",
     "future.beta": "Beta pública ativa — acesso imediato",
     "future.cta": "Entrar na versão beta",
-    "footer.text": "AtenaAI — Plataforma educacional com IA • Desenvolvido por Sávio Emmanuel"
+    "footer.text": "AtenaAI — Plataforma educacional com IA • Desenvolvido por Sávio Emmanuel",
+    "back.portfolio": "Voltar para Portfólio",
+    "infra.desc": "Arquitetura modular baseada em API REST, autenticação segura e persistência de conversas em banco de dados.",
+    "cta.title": "Pronto para estudar com IA de forma responsável?",
+    "cta.beta.desc": "🟢 Beta pública ativa — acesso imediato",
+    "cta.beta": "Entrar na versão beta"
   },
   en: {
     "hero.title": "AtenaAI — Academic AI that supports responsible learning",
@@ -40,10 +45,10 @@ export const translations = {
     "about.title": "What is AtenaAI",
     "about.description": "AtenaAI is an intelligent educational assistant platform, with real-time chat, conversation management, and study area customization.",
     "problem.title": "The current problem with AI in education",
-    "problem.p1": "Generative Artificial Intelligence has arrived in the academic environment — but its use is still uncertain and poorly defined.",
-    "problem.l1": "In some institutions, the use of AI is prohibited.",
-    "problem.l2": "In others, it is ignored.",
-    "problem.l3": "In many, it is used without clear criteria.",
+    "problem.desc": "Generative Artificial Intelligence has arrived in the academic environment — but its use is still uncertain and poorly defined.",
+    "problem.list.1": "In some institutions, the use of AI is prohibited.",
+    "problem.list.2": "In others, it is ignored.",
+    "problem.list.3": "In many, it is used without clear criteria.",
     "problem.result": "The result? Insecure teachers, students dependent on ready-made answers, and compromised learning.",
     "problem.solution": "AtenaAI was created to change this scenario.",
     "features.title": "How AtenaAI helps your learning",
@@ -63,6 +68,11 @@ export const translations = {
     "future.title": "Ready to study with responsible AI?",
     "future.beta": "Public beta active — immediate access",
     "future.cta": "Join the beta version",
-    "footer.text": "AtenaAI — Educational platform with AI • Developed by Sávio Emmanuel"
+    "footer.text": "AtenaAI — Educational platform with AI • Developed by Sávio Emmanuel",
+    "back.portfolio": "Back to Portfolio",
+    "infra.desc": "Modular architecture based on REST API, secure authentication, and conversation persistence in a database.",
+    "cta.title": "Ready to study with responsible AI?",
+    "cta.beta.desc": "🟢 Public beta active — immediate access",
+    "cta.beta": "Join the beta version"
   }
 };
