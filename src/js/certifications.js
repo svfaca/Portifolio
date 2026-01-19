@@ -31,18 +31,30 @@ export class CertificationsManager {
   }
 
   renderCertifications() {
+    const lang = window.currentLang || (document.documentElement.lang.startsWith('en') ? 'en' : 'pt');
     const categories = [
-      { id: 'tecnologia', selector: '#tecnologia-certs', label: 'Tecnologia & Computação' },
-      { id: 'ia', selector: '#ia-certs', label: 'Inteligência Artificial' },
-      { id: 'idiomas', selector: '#idiomas-certs', label: 'Idiomas' },
-      { id: 'ferramentas', selector: '#ferramentas-certs', label: 'Ferramentas & Conformidade' },
-      { id: 'softSkills', selector: '#softskills-certs', label: 'Soft Skills' },
-      { id: 'outros', selector: '#outros-certs', label: 'Outros' }
+      { id: 'tecnologia', selector: '#tecnologia-certs', label: window.translations[lang]['cert.categoria.tecnologia'] },
+      { id: 'ia', selector: '#ia-certs', label: window.translations[lang]['cert.categoria.ia'] },
+      { id: 'idiomas', selector: '#idiomas-certs', label: window.translations[lang]['cert.categoria.idiomas'] },
+      { id: 'ferramentas', selector: '#ferramentas-certs', label: window.translations[lang]['cert.categoria.ferramentas'] },
+      { id: 'softSkills', selector: '#softskills-certs', label: window.translations[lang]['cert.categoria.softskills'] },
+      { id: 'outros', selector: '#outros-certs', label: window.translations[lang]['cert.categoria.outros'] }
     ];
 
     categories.forEach(category => {
       const container = document.querySelector(category.selector);
       if (container && this.certifications[category.id]) {
+        // Render translated category title above the grid
+        const parent = container.parentElement;
+        if (parent) {
+          let titleEl = parent.querySelector('.cert-category-title');
+          if (!titleEl) {
+            titleEl = document.createElement('h3');
+            titleEl.className = 'cert-category-title text-2xl font-bold text-gray-800 mb-8 flex items-center gap-3';
+            parent.insertBefore(titleEl, container);
+          }
+          titleEl.textContent = category.label;
+        }
         const certs = this.certifications[category.id];
         this.renderCategoryCards(container, certs, category.id);
       }
@@ -74,7 +86,10 @@ export class CertificationsManager {
 
   createViewMoreButton(categoryId, isExpanded, totalCount) {
     const hiddenCount = totalCount - this.itemsPerPage;
-    const buttonText = isExpanded ? 'Ver menos' : `Ver mais (${hiddenCount})`;
+    const lang = window.currentLang || (document.documentElement.lang.startsWith('en') ? 'en' : 'pt');
+    const verMais = window.translations[lang]['cert.btn.vermais'] || 'Ver mais';
+    const verMenos = window.translations[lang]['cert.btn.vermenos'] || 'Ver menos';
+    const buttonText = isExpanded ? verMenos : `${verMais} (${hiddenCount})`;
 
     return `
       <div class="col-span-full flex justify-center mt-4">
@@ -132,6 +147,40 @@ export class CertificationsManager {
     const backgroundStyle = hasLogo ? `background-image: url('${logoUrl}'); background-size: cover; background-position: center;` : '';
     const overlayClass = hasLogo ? 'bg-gradient-to-t from-slate-900 via-slate-900/70 to-transparent' : '';
     
+    // Mapeamento dos nomes para as chaves de tradução
+    const nomeToKey = {
+      'Bacharelado em Ciência da Computação': 'cert.nome.bacharelado_ciencia_computacao',
+      'Introdução a Ciência de Dados': 'cert.nome.intro_ciencia_dados',
+      'ANÁLISE DE DADOS COM POWER BI': 'cert.nome.analise_dados_powerbi',
+      'Criando Meu Primeiro Sistema Web': 'cert.nome.primeiro_sistema_web',
+      'Desenvolvendo sua Primeira Solução Low-Code': 'cert.nome.primeira_solucao_lowcode',
+      'MICROCONTROLADORES APLICADOS À ROBÓTICA MÓVEL': 'cert.nome.microcontroladores_robotica',
+      'DRONES AÉREOS AUTÔNOMOS: PROGRAMAÇÃO E SISTEMAS EMBARCADOS': 'cert.nome.drones_autonomos',
+      'SEGURANÇA CIBERNÉTICA NA ERA DA INTELIGÊNCIA ARTIFICIAL': 'cert.nome.seguranca_cibernetica_ia',
+      'Conceitos Fundamentais para um Desenvolvedor de Software Low-Code': 'cert.nome.fundamentos_lowcode',
+      'Conceitos Introdução a um processo de Desenvolvimento Low-Code': 'cert.nome.intro_desenvolvimento_lowcode',
+      'Produtividade na Era da IA Generativa': 'cert.nome.produtividade_ia',
+      'A Escrita Apoiada por IA': 'cert.nome.escrita_ia',
+      'O Profissional Apoiado por IA': 'cert.nome.profissional_ia',
+      'Certificado oficial EF SET 51/100 (B2 Independente)': 'cert.nome.efset_b2',
+      'CURSO DE EXTENSÃO: INGLÊS TÉCNICO': 'cert.nome.ingles_tecnico',
+      'MICROSOFT EXCEL - BÁSICO': 'cert.nome.excel_basico',
+      'Lei Geral de Proteção de Dados (LGPD)': 'cert.nome.lgpd',
+      'Habilidades não-técnicas necessárias para um Profissional de TI': 'cert.nome.softskills_ti',
+      'Suporte Básico de Vida (Primeiros Socorros)': 'cert.nome.suporte_basico_vida',
+      'AUXIILIAR ADMINISTRATIVO': 'cert.nome.auxiliar_administrativo',
+    };
+
+    // Busca tradução se existir
+    let nomeTraduzido = cert.nome;
+    const lang = window.currentLang || (document.documentElement.lang.startsWith('en') ? 'en' : 'pt');
+    const key = nomeToKey[cert.nome];
+    if (key && window.translations && window.translations[lang] && window.translations[lang][key]) {
+      nomeTraduzido = window.translations[lang][key];
+    } else if (key && window.translations && window.translations[key]) {
+      nomeTraduzido = window.translations[key];
+    }
+
     return `
       <a href="${href}" ${(isLink || isPDF) ? 'target="_blank" rel="noopener noreferrer"' : ''} class="glass-card rounded-xl overflow-hidden card-hover group block h-full hover:border-emerald-400/50 relative">
         <div class="absolute inset-0" style="${backgroundStyle}"></div>
@@ -145,13 +194,13 @@ export class CertificationsManager {
           ` : ''}
           
           <div class="flex-1 flex flex-col justify-end">
-            <h3 class="text-base font-bold ${hasLogo ? 'text-white' : 'text-slate-800'} mb-2 group-hover:${hasLogo ? 'text-emerald-300' : 'text-emerald-600'} transition-colors line-clamp-2">${cert.nome}</h3>
+            <h3 class="text-base font-bold ${hasLogo ? 'text-white' : 'text-slate-800'} mb-2 group-hover:${hasLogo ? 'text-emerald-300' : 'text-emerald-600'} transition-colors line-clamp-2">${nomeTraduzido}</h3>
             <p class="text-${hasLogo ? 'gray' : 'slate'}-${hasLogo ? '300' : '600'} text-xs mb-1">${cert.instituicao}</p>
             <p class="text-${hasLogo ? 'gray' : 'slate'}-${hasLogo ? '400' : '500'} text-xs font-mono mb-3">${cert.data}</p>
             
             <div class="w-full pt-2 border-t ${hasLogo ? 'border-slate-400/30' : 'border-slate-200'}">
               <span class="text-${hasLogo ? 'emerald' : 'emerald'}-${hasLogo ? '300' : '600'} text-xs font-semibold inline-flex items-center gap-1">
-                ${isPDF ? '📄 Ver Certificado' : 'Link'}
+                ${isPDF ? (window.translations[lang]['cert.btn.vercertificado'] || '📄 Ver Certificado') : 'Link'}
                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
