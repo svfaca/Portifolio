@@ -1,5 +1,3 @@
-console.log("theme-toggle.JS CARREGOU ✔️");
-
 // Gerenciador de modo escuro/claro unificado
 export class ThemeManager {
   constructor() {

@@ -19,15 +19,10 @@ function getUserLang() {
 function translatePage() {
   const lang = getUserLang();
   const dict = i18n[lang] || i18n.en;
-  console.log('[AtenaAI] translatePage chamada, idioma:', lang);
-  console.log('[AtenaAI] dict:', dict);
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (dict[key]) {
       el.textContent = dict[key];
-      console.log(`[AtenaAI] Traduzido: ${key} => ${dict[key]}`);
-    } else {
-      console.warn(`[AtenaAI] Chave não encontrada: ${key}`);
     }
   });
   // Traduzir o título da página

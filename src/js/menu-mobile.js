@@ -1,5 +1,3 @@
-console.log("menu-mobile.JS CARREGOU ✔️");
-
 export function initMobileMenu() {
   const mobileMenuButton = document.getElementById('mobile-menu-button');
   const mobileMenu = document.getElementById('mobile-menu');

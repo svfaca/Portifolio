@@ -1,5 +1,3 @@
-console.log("MAIN.JS CARREGOU ✔️");
-
 // Arquivo principal de inicialização
 import { initMobileMenu } from './menu-mobile.js';
 import { ThemeManager } from './theme-toggle.js';

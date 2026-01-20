@@ -167,9 +167,6 @@ function updateModeToggleLabel(mode) {
   const key = label.getAttribute('data-i18n');
   if (dict[key]) {
     label.textContent = dict[key];
-    console.log('[AtenaAI] updateModeToggleLabel set', key, '=>', dict[key]);
-  } else {
-    console.log('[AtenaAI] updateModeToggleLabel key not found:', key);
   }
 
   // Corrige todos os botões 'Entre em contato' do hero
@@ -577,8 +574,7 @@ window.setMode = function(mode, save) {
       const body = document.body;
       const btn = document.getElementById('mode-toggle');
         // Language selector removed; rely on browser/user preference via getUserLang() and localStorage
-      if (!btn) { console.warn('[AtenaAI] mode-toggle button not found'); } else { console.log('[AtenaAI] mode-toggle found', btn); }
-      let autoToggleTimeout;
+      if (!btn) { return; }
 
       // Atualiza cor do botão conforme modo
       function updateButtonColor(mode) {
@@ -599,7 +595,6 @@ window.setMode = function(mode, save) {
 
       // Inicializa modo do body
       function setMode(mode, save = true) {
-        console.log('[AtenaAI] setMode called:', mode, 'save:', save);
         body.setAttribute('data-mode', mode);
         // Atualiza o label interno sem sobrescrever o conteúdo do botão
         updateModeToggleLabel(mode);
@@ -650,7 +645,6 @@ window.setMode = function(mode, save) {
       btn.addEventListener('click', function() {
         const current = body.getAttribute('data-mode') || 'student';
         const next = current === 'student' ? 'institution' : 'student';
-        console.log('[AtenaAI] mode-toggle clicked, current:', current, 'next:', next);
         setMode(next);
         // Reinicia o ciclo automático
         if (autoCycleInterval) clearInterval(autoCycleInterval);
@@ -674,7 +668,6 @@ window.setMode = function(mode, save) {
         visualBtn.addEventListener('click', function() {
           const current = body.getAttribute('data-mode') || 'student';
           const next = current === 'student' ? 'institution' : 'student';
-          console.log('[AtenaAI] mode-visual-toggle clicked, current:', current, 'next:', next);
           setMode(next);
           if (autoCycleInterval) clearInterval(autoCycleInterval);
           startAutoCycle();
@@ -719,7 +712,6 @@ function updateHeroTexts(mode) {
   // Detecta idioma do usuário (usa `getUserLang()` quando disponível)
   const lang = window.getUserLang ? window.getUserLang() : (navigator.language && navigator.language.startsWith('pt') ? 'pt' : 'en');
   const dict = (window.i18n && (window.i18n[lang] || window.i18n['pt'] || window.i18n['en'])) || {};
-  console.log('[AtenaAI] updateHeroTexts dict keys:', Object.keys(dict));
 
   // Estilização do botão primário (Acessar versão beta)
   // Para modo instituição/professor, usar cor do botão do modo instituição
@@ -760,7 +752,6 @@ function updateHeroTexts(mode) {
       ctaSecondary.parentNode.insertBefore(ctaSecondaryNote, ctaSecondary);
     }
     ctaSecondary.textContent = dict['cta.institution.button'] || ctaSecondary.textContent;
-    console.log('[AtenaAI] updateHeroTexts institution ctaSecondary =>', ctaSecondary.textContent);
     ctaSecondary.setAttribute('href', '#contato');
     ctaSecondary.setAttribute('target', '');
     ctaSecondary.setAttribute('rel', '');
@@ -780,7 +771,6 @@ function updateHeroTexts(mode) {
     if (window.translatePage) window.translatePage();
     ctaPrimary.textContent = dict['hero.cta_primary'] || ctaPrimary.textContent;
     ctaSecondary.textContent = dict['cta.students.button'] || dict['hero.cta_secondary'] || ctaSecondary.textContent;
-    console.log('[AtenaAI] updateHeroTexts student ctaPrimary =>', ctaPrimary.textContent, 'ctaSecondary =>', ctaSecondary.textContent);
     ctaSecondary.setAttribute('href', '#contato');
     ctaSecondary.setAttribute('target', '');
     ctaSecondary.setAttribute('rel', '');
