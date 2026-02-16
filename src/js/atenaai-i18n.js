@@ -92,7 +92,7 @@ export const i18n = {
   },
   en: {
         "header.title": "AtenaAI — Academic AI for responsible learning",
-        "contact.phone": "Phone",
+        "contact.phone": "WhatsApp",
     "back.portfolio": "Back to Portfolio",
       "hero.title": "AtenaAI — Academic AI that supports responsible learning",
       "hero.subtitle": "An educational platform with Artificial Intelligence designed to assist students in the learning process — without replacing reasoning or the teacher's role.",
