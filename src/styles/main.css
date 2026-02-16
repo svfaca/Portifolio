@@ -3,13 +3,13 @@
 
 /* Reset e variáveis globais */
 :root {
-  --color-primary: #059669;
-  --color-secondary: #047857;
+  --color-primary: #dc2626;
+  --color-secondary: #991b1b;
   --color-text: #374151;
   --color-bg: #fafafa;
-  --color-accent: #0d9488;
-  --color-emerald: #10b981;
-  --color-teal: #14b8a6;
+  --color-accent: #dc2626;
+  --color-red: #dc2626;
+  --color-red-dark: #991b1b;
   
   --font-heading: 'Space Grotesk', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -33,79 +33,22 @@ body {
   font-family: var(--font-body);
   color: var(--color-text);
   line-height: 1.6;
+  overflow-x: hidden;
 }
 
-/* Scrollbar ultra discreta */
-/* Forçar scrollbar escura no modo dark em todos os contextos */
- ::-webkit-scrollbar-thumb,
- ::-webkit-scrollbar-thumb,
-::-webkit-scrollbar-thumb,
-::-webkit-scrollbar-thumb,
-.dark ::-webkit-scrollbar-thumb,
-.dark::-webkit-scrollbar-thumb {
-  background: rgba(20,40,30,0.55) !important;
-  border-radius: 8px !important;
-  border: none !important;
-  min-height: 40px;
-  transition: background 0.2s;
-}
-
- ::-webkit-scrollbar-thumb:hover,
- ::-webkit-scrollbar-thumb:hover,
-::-webkit-scrollbar-thumb:hover,
-::-webkit-scrollbar-thumb:hover,
-.dark ::-webkit-scrollbar-thumb:hover,
-.dark::-webkit-scrollbar-thumb:hover {
-  background: rgba(16,185,129,0.18) !important;
-}
-
- ::-webkit-scrollbar-track,
- ::-webkit-scrollbar-track,
-::-webkit-scrollbar-track,
-::-webkit-scrollbar-track,
-.dark ::-webkit-scrollbar-track,
-.dark::-webkit-scrollbar-track {
-  background: transparent !important;
-}
-
-, , .dark {
-  scrollbar-color: rgba(20,40,30,0.55) transparent !important;
-}
+/* Scrollbar limpa */
 ::-webkit-scrollbar {
   width: 8px;
-  background: transparent;
 }
-::-webkit-scrollbar-track {
-  background: transparent !important;
-}
+
 ::-webkit-scrollbar-thumb {
-  background: rgba(80,80,80,0.07) !important;
+  background: rgba(120, 120, 120, 0.3);
   border-radius: 8px;
-  border: none !important;
-  min-height: 40px;
-  transition: background 0.2s;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(80,80,80,0.13) !important;
-}
-html {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(80,80,80,0.07) transparent;
-}
- ::-webkit-scrollbar-thumb,
-.dark ::-webkit-scrollbar-thumb {
-  background: rgba(20,40,30,0.45) !important;
-}
- ::-webkit-scrollbar-thumb:hover,
-.dark ::-webkit-scrollbar-thumb:hover {
-  background: rgba(16,185,129,0.18) !important;
-}
- ::-webkit-scrollbar-track,
-.dark ::-webkit-scrollbar-track {
-  background: transparent !important;
-}
-, .dark {
-  scrollbar-color: rgba(20,40,30,0.45) transparent !important;
+
+.dark::-webkit-scrollbar-thumb {
+  background: rgba(100, 100, 100, 0.4);
+  border-radius: 8px;
 }
 
 /* Tipografia */
@@ -119,55 +62,22 @@ html {
 
 /* Gradientes */
 .gradient-text {
-  background: linear-gradient(135deg, #059669 0%, #0d9488 50%, #0891b2 100%);
+  background: linear-gradient(135deg, #dc2626 0%, #991b1b 50%, #b91c1c 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+/* Gradientes Background - Light Mode */
 .gradient-bg {
   background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 50%, #fafafa 100%);
+  overflow-x: hidden;
 }
 
+/* Gradientes Background - Dark Mode */
 .dark .gradient-bg {
-  background: linear-gradient(135deg, #000000 0%, #001a0d 50%, #000000 100%) !important;
-}
-
-/* Code Card - Modo Claro */
-.code-card {
-  background: #1e293b;
-}
-
-.code-card-header {
-  background: #0f172a;
-}
-
-.code-card-body {
-  color: #e2e8f0;
-}
-
-.code-keyword {
-  color: #c084fc;
-}
-
-.code-variable {
-  color: #7dd3fc;
-}
-
-.code-operator {
-  color: #f8fafc;
-}
-
-.code-property {
-  color: #7dd3fc;
-}
-
-.code-string {
-  color: #fbbf24;
-}
-
-.code-boolean {
-  color: #34d399;
+  background: linear-gradient(135deg, #0e0e0f 0%, #1a1a1a 50%, #0e0e0f 100%) !important;
+  overflow-x: hidden;
 }
 
 /* Efeitos de Card */
@@ -220,11 +130,6 @@ html {
   animation: fadeInUp 0.6s ease-out forwards;
 }
 
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }
-
 /* Navigation Links */
 .nav-link {
   position: relative;
@@ -238,7 +143,7 @@ html {
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #059669, #0d9488);
+  background: linear-gradient(90deg, #dc2626, #991b1b);
   transition: width 0.3s ease;
 }
 
@@ -248,163 +153,116 @@ html {
 
 /* Projeto Tags */
 .projeto-tag {
-  background: rgba(5, 150, 105, 0.08);
-  border: 1px solid rgba(5, 150, 105, 0.15);
+  background: rgba(220, 38, 38, 0.08);
+  border: 1px solid rgba(220, 38, 38, 0.15);
   transition: var(--transition-smooth);
 }
 
 .projeto-tag:hover {
-  background: rgba(5, 150, 105, 0.12);
-  border-color: rgba(5, 150, 105, 0.25);
+  background: rgba(220, 38, 38, 0.12);
+  border-color: rgba(220, 38, 38, 0.25);
 }
 
 /* Dark Mode */
 .dark {
-  background: linear-gradient(135deg, #000000 0%, #001a0d 50%, #000000 100%) !important;
+  background: linear-gradient(135deg, #0e0e0f 0%, #1a1a1a 100%) !important;
 }
 
 .dark .glass-card {
-  background: rgba(10, 10, 10, 0.8);
-  border: 1px solid rgba(0, 255, 136, 0.2);
-  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.1);
+  background: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .dark .card-hover:hover {
-  box-shadow: 0 20px 40px rgba(0, 255, 136, 0.4), 0 0 20px rgba(0, 255, 136, 0.3);
-  border-color: rgba(0, 255, 136, 0.5);
-}
-
-/* Scrollbar Dark Mode */
-/* Scrollbar Dark Mode - removido para evitar conflito e garantir cor escura discreta */
-
-.dark .text-slate-800,
-.dark .text-gray-800 {
-  color: #00ff88 !important;
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
-}
-
-.dark .text-slate-600,
-.dark .text-gray-600 {
-  color: #a0ffd4 !important;
-}
-
-.dark .text-slate-700,
-.dark .text-gray-700 {
-  color: #00ffcc !important;
-}
-
-.dark .text-slate-500,
-.dark .text-gray-500 {
-  color: #66ffaa !important;
-}
-
-.dark .text-gray-400 {
-  color: #55dd99 !important;
-}
-
-.dark .bg-slate-200,
-.dark .bg-gray-100 {
-  background-color: #001a0d !important;
-}
-
-.dark .border-slate-200,
-.dark .border-gray-200,
-.dark .border-gray-300 {
-  border-color: rgba(0, 255, 136, 0.3) !important;
+  box-shadow: 0 10px 30px rgba(220, 38, 38, 0.15);
+  border-color: rgba(220, 38, 38, 0.3);
 }
 
 .dark .nav-link {
-  color: #00ffcc;
+  color: #e5e7eb;
 }
 
 .dark .nav-link:hover {
-  color: #00ff88;
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+  color: #dc2626;
+}
+
+.dark a:hover {
+  color: #dc2626;
 }
 
 .dark .gradient-text {
-  background: linear-gradient(135deg, #00ff88 0%, #00ffcc 50%, #00ff88 100%);
+  background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #dc2626 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  filter: drop-shadow(0 0 10px rgba(0, 255, 136, 0.5));
 }
 
-/* Ícones das categorias no dark mode */
-.dark .text-emerald-600,
-.dark .text-purple-600,
-.dark .text-blue-600,
-.dark .text-orange-600,
-.dark .text-indigo-600 {
-  color: #00ff88 !important;
+/* Theme toggle styling */
+#theme-toggle,
+#theme-toggle-mobile {
+  color: inherit;
 }
 
-/* Code Card - Dark Mode */
-.dark .code-card {
-  background: #000000;
-  border: 1px solid rgba(0, 255, 136, 0.3);
-  box-shadow: 0 0 30px rgba(0, 255, 136, 0.15);
+#theme-toggle:hover,
+#theme-toggle-mobile:hover {
+  color: #dc2626 !important;
 }
 
-.dark .code-card-header {
-  background: #000000;
-  border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+.dark #theme-toggle:hover,
+.dark #theme-toggle-mobile:hover {
+  color: #dc2626 !important;
 }
 
-.dark .code-card-body {
-  color: #a0ffd4;
-}
-
-.dark .code-keyword {
-  color: #ff79c6;
-}
-
-.dark .code-variable {
-  color: #00ffcc;
-}
-
-.dark .code-property {
-  color: #00ffcc;
-}
-
-.dark .code-string {
-  color: #fbbf24;
-}
-
-.dark .code-boolean {
-  color: #00ff88;
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
-}
-
-/* Hero social icons dark mode */
-.dark .hero-social-icon {
-  color: #66ffaa !important;
-}
-
-.dark .hero-social-icon:hover {
-  color: #00ff88 !important;
-}
-
-/* Botão currículo dark mode */
-.dark .border-emerald-500 {
-  border-color: #00ff88 !important;
-}
-
-.dark .text-emerald-600 {
-  color: #00ff88 !important;
-}
-
-.dark .hover\:bg-emerald-500:hover {
-  background-color: #00ff88 !important;
-  color: #000000 !important;
+#sun-icon,
+#moon-icon,
+#sun-icon-mobile,
+#moon-icon-mobile {
+  color: inherit;
 }
 
 /* Responsivo */
 @media (max-width: 768px) {
+  /* Hero Mobile */
+  .profile-image {
+    width: 220px;
+  }
+
+  .hero-image-wrapper::before,
+  .hero-image-wrapper::after {
+    opacity: 0.4;
+    filter: blur(60px);
+  }
+
+  h1 {
+    font-size: 2rem !important;
+  }
+
+
+  /* Glass Card */
   .glass-card {
     padding: 1.5rem;
   }
-  
+
+  /* Skills items */
+  .skill-item {
+    margin-bottom: 1rem;
+  }
+
+  .skill-bar {
+    background: #dc2626 !important;
+  }
+
+  .dark .skill-bar {
+    background: #dc2626 !important;
+  }
+
+  /* Card projects */
+  .card-hover {
+    padding: 1rem;
+  }
+
+  /* Navigation */
   .nav-link {
     font-size: 0.875rem;
   }
@@ -419,18 +277,7 @@ html {
   }
 }
 
-/* === Scrollbar Dark Final Override === */
-.dark::-webkit-scrollbar-thumb {
-  background: rgba(20,40,30,0.55) !important;
-}
 
-.dark::-webkit-scrollbar-track {
-  background: transparent !important;
-}
-
-.dark {
-  scrollbar-color: rgba(20,40,30,0.55) transparent !important;
-}
 
 /* === Mobile Menu Dark Fix === */
 
@@ -449,19 +296,34 @@ html {
 }
 
 .dark .mobile-menu-panel {
-  background: #020617; /* slate-950 */
-  border-left: 1px solid rgba(0,255,136,0.2);
+  background: #0a0a0a; /* charcoal-950 */
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Ícone hambúrguer visível sempre */
+/* Ícone hambúrguer minimalista */
 #mobile-menu-button {
-  background-color: white;
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0.5rem 0.5rem;
+  color: #dc2626;
+}
+
+#mobile-menu-button:hover {
+  background-color: transparent !important;
+  opacity: 0.7;
 }
 
 .dark #mobile-menu-button {
-  background-color: #1e293b; /* slate-800 */
-  color: #f8fafc;
-  border-color: #334155;
+  background-color: transparent !important;
+  color: #dc2626;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.dark #mobile-menu-button:hover {
+  background-color: transparent !important;
+  opacity: 0.7;
 }
 
 /* Garante que o menu mobile fica acima do header */
@@ -474,11 +336,105 @@ nav {
   z-index: 50;
 }
 
-#mobile-menu {
-  z-index: 9999;
+/* Desktop: header grande */
+@media (min-width: 768px) {
+  nav > div {
+    padding: 0.75rem 1.5rem !important;
+  }
 }
 
 nav {
   z-index: 50;
+}
+
+/* ===== HERO IMAGE WRAPPER - ILUMINAÇÃO E FUMAÇA ===== */
+
+.hero-image-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 430px;
+}
+
+.profile-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  margin-bottom: -25px;
+}
+
+.hero-image-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -60px;
+  z-index: -1;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.6;
+  transition: 0.4s ease;
+}
+
+/* ===== MODO CLARO ===== */
+body:not(.dark) .hero-image-wrapper::before {
+  background: radial-gradient(circle,
+    rgba(255, 0, 0, 0.35) 0%,
+    rgba(255, 0, 0, 0.15) 40%,
+    transparent 70%);
+}
+
+/* ===== MODO ESCURO ===== */
+.dark .hero-image-wrapper::before {
+  background: radial-gradient(circle,
+    rgba(220, 38, 38, 0.5) 0%,
+    rgba(220, 38, 38, 0.25) 40%,
+    transparent 70%);
+}
+
+/* 🌫️ EFEITO FUMAÇA SUAVE */
+.hero-image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: -140px;
+  z-index: -2;
+  filter: blur(100px);
+  opacity: 0.7;
+  animation: smokeMove 14s ease-in-out infinite alternate;
+}
+
+/* Modo claro */
+body:not(.dark) .hero-image-wrapper::after {
+  background: radial-gradient(circle at 60% 50%,
+    rgba(255, 0, 0, 0.35) 0%,
+    rgba(255, 0, 0, 0.2) 40%,
+    transparent 70%);
+}
+
+/* Modo escuro */
+.dark .hero-image-wrapper::after {
+  background: radial-gradient(circle at 60% 50%,
+    rgba(220, 38, 38, 0.4) 0%,
+    rgba(220, 38, 38, 0.2) 40%,
+    transparent 70%);
+}
+
+/* ANIMAÇÃO FUMAÇA */
+@keyframes smokeMove {
+  from {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(10px);
+  }
+}
+
+/* ===== COR DO DESTAQUE DO NOME ===== */
+.highlight-name {
+  color: #dc2626;
+}
+
+.dark .highlight-name {
+  color: #dc2626;
+  text-shadow: none;
 }
 

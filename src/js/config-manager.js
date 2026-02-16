@@ -12,17 +12,10 @@ export class ConfigManager {
   }
 
   applyConfig() {
-    const { nome, titulo, sobre_mim, email, telefone, github, linkedin } = this.config;
+    const { nome, email, telefone, github, linkedin } = this.config;
     
-    // Atualizar elementos de texto
-    const heroNome = document.getElementById('hero-nome');
-    const heroTitulo = document.getElementById('hero-titulo');
-    const heroSobre = document.getElementById('hero-sobre');
+    // Atualizar nome no footer
     const footerNome = document.getElementById('footer-nome');
-    
-    if (heroNome) heroNome.textContent = nome;
-    if (heroTitulo) heroTitulo.textContent = titulo;
-    if (heroSobre) heroSobre.textContent = sobre_mim;
     if (footerNome) footerNome.textContent = nome;
     
     // Atualizar contato

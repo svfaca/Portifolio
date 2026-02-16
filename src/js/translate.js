@@ -1,4 +1,3 @@
-// ...existing code...
 // src/js/translate.js
 // Sistema simples de tradução manual PT/EN
 
@@ -41,7 +40,10 @@ const translations = {
     'menu.projetos': 'Projetos',
     'menu.certificacoes': 'Certificações',
     'menu.contato': 'Contato',
-    'hero.sobre': '⚡ Desenvolvedor Full Stack Júnior apaixonado por tecnologia. Focado em Python, APIs, Inteligência Artificial e Automação ⚡',
+    'hero.hello': 'OLÁ',
+    'hero.name': 'Sou Sávio Emmanuel',
+    'hero.profession': 'Desenvolvedor Full Stack Júnior',
+    'hero.downloadcv': 'BAIXAR CV',
     'btn.curriculo': 'VER CURRÍCULO',
     'sobre.titulo': 'Sobre Mim',
     'btn.conheca': 'CONHEÇA',
@@ -164,7 +166,10 @@ const translations = {
     'menu.projetos': 'Projects',
     'menu.certificacoes': 'Certifications',
     'menu.contato': 'Contact',
-    'hero.sobre': '⚡ Junior Full Stack Developer passionate about technology. Focused on Python, APIs, Artificial Intelligence and Automation ⚡',
+    'hero.hello': 'HELLO',
+    'hero.name': 'I\'m Sávio Emmanuel',
+    'hero.profession': 'Junior Full Stack Developer',
+    'hero.downloadcv': 'DOWNLOAD CV',
     'btn.curriculo': 'SEE RESUME',
     'sobre.titulo': 'About Me',
     'btn.conheca': 'GET TO KNOW',

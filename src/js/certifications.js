@@ -50,7 +50,7 @@ export class CertificationsManager {
           let titleEl = parent.querySelector('.cert-category-title');
           if (!titleEl) {
             titleEl = document.createElement('h3');
-            titleEl.className = 'cert-category-title text-2xl font-bold text-gray-800 mb-8 flex items-center gap-3';
+            titleEl.className = 'cert-category-title text-2xl font-bold text-gray-800 dark:text-white mb-8 flex items-center gap-3';
             parent.insertBefore(titleEl, container);
           }
           titleEl.textContent = category.label;
