@@ -101,6 +101,49 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
 }
 
+.project-card-header {
+  min-height: 3.25rem;
+}
+
+.project-card-toggle {
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.project-card-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.project-card-toggle-icon {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.project-card-body {
+  max-height: 1200px;
+  opacity: 1;
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.2s ease, transform 0.35s ease;
+}
+
+.project-card.is-collapsed .project-card-body {
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+}
+
+.project-card.is-collapsed .project-card-toggle-icon {
+  transform: rotate(0deg);
+}
+
+.project-card:not(.is-collapsed) .project-card-toggle-icon {
+  transform: rotate(90deg);
+}
+
+.project-card.is-collapsed .project-card-content {
+  padding-bottom: 1.5rem;
+}
+
 .project-card-content {
   background: #ffffff;
   border-top: 1px solid #e2e8f0;

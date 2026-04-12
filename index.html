@@ -219,74 +219,109 @@
           <p class="text-gray-600 dark:text-gray-300 text-lg mb-6 text-center" data-i18n="projetos.desc">Veja abaixo algumas das minhas principais experiências e projetos com foco em IA aplicada e desenvolvimento de sistemas inteligentes.</p>
         </div>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
           <!-- Experiência Monest - Prompt Engineer -->
-          <article class="project-card rounded-2xl overflow-hidden card-hover block shadow-2xl w-full h-full flex flex-col" style="background: linear-gradient(180deg, #d13a3a 0%, #a61b1b 100%);">
-            <div class="flex items-center justify-center py-10 bg-transparent">
-              <div class="w-28 h-28 md:w-36 md:h-36 flex items-center justify-center" aria-hidden="true">
-                <img src="assets/icons/logo_monest-cobrancas.png" alt="Logo Monest" class="w-full h-full object-contain p-1.5 md:p-1" style="filter: drop-shadow(0 0 8px rgba(255,255,255,0.15));">
-              </div>
+          <article data-project-card class="project-card rounded-2xl overflow-hidden card-hover block shadow-2xl w-full flex flex-col self-start" style="background: linear-gradient(180deg, #d13a3a 0%, #a61b1b 100%);">
+            <div class="h-36 md:h-44 flex items-center justify-center bg-transparent">
+              <a href="https://startupi.com.br/monest-apresenta-ia-que-negocia-dividas/" target="_blank" rel="noopener noreferrer" aria-label="Abrir matéria da Monest" class="block">
+                <div class="w-24 h-24 md:w-32 md:h-32 flex items-center justify-center" aria-hidden="true">
+                  <img src="assets/icons/logo_monest-cobrancas.png" alt="Logo Monest" class="w-full h-full object-contain p-1 md:p-0.5" style="filter: drop-shadow(0 0 8px rgba(255,255,255,0.15));">
+                </div>
+              </a>
             </div>
-            <div class="project-card-content p-6 flex flex-col flex-1">
-              <h3 class="text-2xl font-bold text-slate-900 dark:text-red-300 mb-2" data-i18n="projetos.monest.title">Prompt Engineer — Monest</h3>
-              <p class="text-base text-slate-600 dark:text-gray-200 mb-4" data-i18n="projetos.monest.desc">Desenvolvimento de soluções baseadas em Inteligência Artificial para o mercado, com foco na criação, manutenção e otimização de prompts para sistemas com LLMs. Atuação direta na avaliação da qualidade das respostas e melhoria contínua de fluxos conversacionais.</p>
-              <ul class="text-sm text-slate-600 dark:text-gray-300 mb-4 list-disc pl-5 space-y-1.5">
-                <li data-i18n="projetos.monest.feature1">Avaliação de respostas de modelos de linguagem</li>
-                <li data-i18n="projetos.monest.feature2">Criação e otimização de prompts</li>
-                <li data-i18n="projetos.monest.feature3">Identificação de falhas e inconsistências</li>
-                <li data-i18n="projetos.monest.feature4">LangChain e LangSmith para testes</li>
-              </ul>
-              <div class="flex flex-wrap gap-2 mt-auto pt-2">
-                <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">LLMs</span>
-                <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">Prompt Engineering</span>
-                <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">LangChain</span>
+            <div class="project-card-content p-5 flex flex-col flex-1">
+              <div class="project-card-header flex items-center gap-3 pb-3 border-b border-slate-200/80 dark:border-slate-800/80">
+                <h3 class="min-w-0 flex-1 text-xl md:text-2xl font-bold leading-tight">
+                  <a href="https://startupi.com.br/monest-apresenta-ia-que-negocia-dividas/" target="_blank" rel="noopener noreferrer" class="block text-slate-900 dark:text-red-300 hover:text-red-500 dark:hover:text-red-200 transition-colors" data-i18n="projetos.monest.title">Prompt Engineer — Monest</a>
+                </h3>
+                <button type="button" data-project-toggle aria-expanded="true" aria-controls="monest-body" aria-label="Fechar detalhes" class="project-card-toggle w-10 h-10 shrink-0 rounded-full border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 text-slate-700 dark:text-slate-200 flex items-center justify-center shadow-sm hover:shadow-md hover:border-red-400 dark:hover:border-red-500 transition-all">
+                  <span class="project-card-toggle-icon text-lg leading-none">&gt;</span>
+                </button>
+              </div>
+              <div id="monest-body" class="project-card-body">
+                <div class="pt-5">
+                  <p class="text-base text-slate-600 dark:text-gray-200 mb-4" data-i18n="projetos.monest.desc">Desenvolvimento de soluções baseadas em Inteligência Artificial para o mercado, com foco na criação, manutenção e otimização de prompts para sistemas com LLMs. Atuação direta na avaliação da qualidade das respostas e melhoria contínua de fluxos conversacionais.</p>
+                  <ul class="text-sm text-slate-600 dark:text-gray-300 mb-4 list-disc pl-5 space-y-1.5">
+                    <li data-i18n="projetos.monest.feature1">Avaliação de respostas de modelos de linguagem</li>
+                    <li data-i18n="projetos.monest.feature2">Criação e otimização de prompts</li>
+                    <li data-i18n="projetos.monest.feature3">Identificação de falhas e inconsistências</li>
+                    <li data-i18n="projetos.monest.feature4">LangChain e LangSmith para testes</li>
+                  </ul>
+                  <div class="flex flex-wrap gap-2 mt-auto pt-2">
+                    <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">LLMs</span>
+                    <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">Prompt Engineering</span>
+                    <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">LangChain</span>
+                  </div>
+                </div>
               </div>
             </div>
           </article>
 
           <!-- Projeto AtenaAI -->
-          <article class="project-card rounded-2xl overflow-hidden card-hover block shadow-2xl w-full h-full flex flex-col" style="background: linear-gradient(180deg, #5b5fe8 0%, #4338ca 100%);">
-            <div class="h-44 md:h-52 flex items-center justify-center bg-transparent">
-              <img src="assets/icons/atenaai-logo.png" alt="Logo AtenaAI" class="w-28 h-28 md:w-36 md:h-36 object-contain" style="filter: drop-shadow(0 0 8px rgba(255,255,255,0.12));" aria-hidden="true">
+          <article data-project-card class="project-card rounded-2xl overflow-hidden card-hover block shadow-2xl w-full flex flex-col self-start" style="background: linear-gradient(180deg, #5b5fe8 0%, #4338ca 100%);">
+            <div class="h-36 md:h-44 flex items-center justify-center bg-transparent">
+              <a href="AtenaAI/index.html" target="_blank" rel="noopener noreferrer" aria-label="Abrir página da AtenaAI" class="block">
+                <img src="assets/icons/atenaai-logo.png" alt="Logo AtenaAI" class="w-24 h-24 md:w-32 md:h-32 object-contain" style="filter: drop-shadow(0 0 8px rgba(255,255,255,0.12));" aria-hidden="true">
+              </a>
             </div>
-            <div class="project-card-content p-6 flex flex-col flex-1">
-              <h3 class="text-2xl font-bold text-slate-900 dark:text-indigo-300 mb-2" data-i18n="projetos.atenaai.title">AtenaAI</h3>
-              <p class="text-base text-slate-600 dark:text-gray-200 mb-4" data-i18n="projetos.atenaai.desc">Plataforma de assistente educacional com IA, utilizando modelos de linguagem (LLMs) para geração de respostas inteligentes e contextualizadas em interações com usuários. O sistema inclui controle de comportamento, avaliação da qualidade das respostas e arquitetura fullstack integrada com APIs de IA.</p>
-              <ul class="text-sm text-slate-600 dark:text-gray-300 mb-4 list-disc pl-5 space-y-1.5">
-                <li data-i18n="projetos.atenaai.feature1">Geração de respostas com LLM</li>
-                <li data-i18n="projetos.atenaai.feature2">Controle de comportamento e contexto</li>
-                <li data-i18n="projetos.atenaai.feature3">Avaliação da qualidade das respostas</li>
-                <li data-i18n="projetos.atenaai.feature4">Ajustes iterativos para melhoria de desempenho</li>
-              </ul>
-              <div class="flex flex-wrap gap-2 mt-auto pt-2">
-                <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">Python</span>
-                <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">FastAPI</span>
-                <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">APIs de IA</span>
+            <div class="project-card-content p-5 flex flex-col flex-1">
+              <div class="project-card-header flex items-center gap-3 pb-3 border-b border-slate-200/80 dark:border-slate-800/80">
+                <h3 class="min-w-0 flex-1 text-xl md:text-2xl font-bold leading-tight">
+                  <a href="AtenaAI/index.html" target="_blank" rel="noopener noreferrer" class="block text-slate-900 dark:text-indigo-300 hover:text-indigo-500 dark:hover:text-indigo-200 transition-colors" data-i18n="projetos.atenaai.title">AtenaAI</a>
+                </h3>
+                <button type="button" data-project-toggle aria-expanded="true" aria-controls="atenaai-body" aria-label="Fechar detalhes" class="project-card-toggle w-10 h-10 shrink-0 rounded-full border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 text-slate-700 dark:text-slate-200 flex items-center justify-center shadow-sm hover:shadow-md hover:border-indigo-400 dark:hover:border-indigo-500 transition-all">
+                  <span class="project-card-toggle-icon text-lg leading-none">&gt;</span>
+                </button>
+              </div>
+              <div id="atenaai-body" class="project-card-body">
+                <div class="pt-5">
+                  <p class="text-base text-slate-600 dark:text-gray-200 mb-4" data-i18n="projetos.atenaai.desc">Plataforma de assistente educacional com IA, utilizando modelos de linguagem (LLMs) para geração de respostas inteligentes e contextualizadas em interações com usuários. O sistema inclui controle de comportamento, avaliação da qualidade das respostas e arquitetura fullstack integrada com APIs de IA.</p>
+                  <ul class="text-sm text-slate-600 dark:text-gray-300 mb-4 list-disc pl-5 space-y-1.5">
+                    <li data-i18n="projetos.atenaai.feature1">Geração de respostas com LLM</li>
+                    <li data-i18n="projetos.atenaai.feature2">Controle de comportamento e contexto</li>
+                    <li data-i18n="projetos.atenaai.feature3">Avaliação da qualidade das respostas</li>
+                    <li data-i18n="projetos.atenaai.feature4">Ajustes iterativos para melhoria de desempenho</li>
+                  </ul>
+                  <div class="flex flex-wrap gap-2 mt-auto pt-2">
+                    <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">Python</span>
+                    <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">FastAPI</span>
+                    <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">APIs de IA</span>
+                  </div>
+                </div>
               </div>
             </div>
           </article>
 
           <!-- Projeto Visao Computacional -->
-          <article class="project-card rounded-2xl overflow-hidden card-hover block shadow-2xl w-full h-full flex flex-col" style="background: linear-gradient(180deg, #0f766e 0%, #115e59 100%);">
-            <div class="h-44 md:h-52 flex items-center justify-center bg-transparent">
-              <svg class="w-28 h-28 md:w-36 md:h-36 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 8px rgba(255,255,255,0.12));" aria-hidden="true">
+          <article data-project-card class="project-card rounded-2xl overflow-hidden card-hover block shadow-2xl w-full flex flex-col self-start" style="background: linear-gradient(180deg, #0f766e 0%, #115e59 100%);">
+            <div class="h-36 md:h-44 flex items-center justify-center bg-transparent">
+              <svg class="w-24 h-24 md:w-32 md:h-32 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 8px rgba(255,255,255,0.12));" aria-hidden="true">
                 <rect x="3" y="6" width="12" height="12" rx="2.2"></rect>
                 <path d="M15 10l6-3v10l-6-3z"></path>
               </svg>
             </div>
-            <div class="project-card-content p-6 flex flex-col flex-1">
-              <h3 class="text-2xl font-bold text-slate-900 dark:text-teal-300 mb-2" data-i18n="projetos.vision.title">Visão Computacional Aplicada ao Varejo</h3>
-              <p class="text-base text-slate-600 dark:text-gray-200 mb-4" data-i18n="projetos.vision.desc">Sistema de visão computacional para análise de eventos em vídeo, aplicado a cenários de varejo, com foco na identificação de padrões de comportamento e apoio a decisões operacionais. O projeto envolve processamento de imagens, detecção de eventos e otimização contínua da precisão do modelo.</p>
-              <ul class="text-sm text-slate-600 dark:text-gray-300 mb-4 list-disc pl-5 space-y-1.5">
-                <li data-i18n="projetos.vision.feature1">Análise de eventos em vídeo</li>
-                <li data-i18n="projetos.vision.feature2">Detecção de padrões de comportamento</li>
-                <li data-i18n="projetos.vision.feature3">Aplicação em cenário de varejo</li>
-                <li data-i18n="projetos.vision.feature4">Otimização de precisão do modelo</li>
-              </ul>
-              <div class="flex flex-wrap gap-2 mt-auto pt-2">
-                <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">Python</span>
-                <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">OpenCV</span>
-                <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">Computer Vision</span>
+            <div class="project-card-content p-5 flex flex-col flex-1">
+              <div class="project-card-header flex items-center gap-3 pb-3 border-b border-slate-200/80 dark:border-slate-800/80">
+                <h3 class="min-w-0 flex-1 text-xl md:text-2xl font-bold text-slate-900 dark:text-teal-300 leading-tight" data-i18n="projetos.vision.title">Visão Computacional Aplicada ao Varejo</h3>
+                <button type="button" data-project-toggle aria-expanded="true" aria-controls="vision-body" aria-label="Fechar detalhes" class="project-card-toggle w-10 h-10 shrink-0 rounded-full border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 text-slate-700 dark:text-slate-200 flex items-center justify-center shadow-sm hover:shadow-md hover:border-teal-400 dark:hover:border-teal-500 transition-all">
+                  <span class="project-card-toggle-icon text-lg leading-none">&gt;</span>
+                </button>
+              </div>
+              <div id="vision-body" class="project-card-body">
+                <div class="pt-5">
+                  <p class="text-base text-slate-600 dark:text-gray-200 mb-4" data-i18n="projetos.vision.desc">Sistema de visão computacional para análise de eventos em vídeo, aplicado a cenários de varejo, com foco na identificação de padrões de comportamento e apoio a decisões operacionais. O projeto envolve processamento de imagens, detecção de eventos e otimização contínua da precisão do modelo.</p>
+                  <ul class="text-sm text-slate-600 dark:text-gray-300 mb-4 list-disc pl-5 space-y-1.5">
+                    <li data-i18n="projetos.vision.feature1">Análise de eventos em vídeo</li>
+                    <li data-i18n="projetos.vision.feature2">Detecção de padrões de comportamento</li>
+                    <li data-i18n="projetos.vision.feature3">Aplicação em cenário de varejo</li>
+                    <li data-i18n="projetos.vision.feature4">Otimização de precisão do modelo</li>
+                  </ul>
+                  <div class="flex flex-wrap gap-2 mt-auto pt-2">
+                    <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">Python</span>
+                    <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">OpenCV</span>
+                    <span class="projeto-tag px-3 py-1 rounded-full text-xs font-semibold">Computer Vision</span>
+                  </div>
+                </div>
               </div>
             </div>
           </article>
