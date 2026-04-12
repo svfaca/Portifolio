@@ -90,6 +90,27 @@ body {
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
 }
 
+/* Microinteracao premium apenas nos cards de projeto */
+.project-card {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.project-card-content {
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+}
+
+.dark .project-card-content {
+  background: #0f172a;
+  border-top-color: rgba(148, 163, 184, 0.18);
+}
+
 /* Glass Morphism */
 .glass-card {
   background: rgba(255, 255, 255, 0.95);
@@ -153,14 +174,26 @@ body {
 
 /* Projeto Tags */
 .projeto-tag {
-  background: rgba(220, 38, 38, 0.08);
-  border: 1px solid rgba(220, 38, 38, 0.15);
+  background: #f1f5f9;
+  color: #334155;
+  border: 1px solid #e2e8f0;
   transition: var(--transition-smooth);
 }
 
 .projeto-tag:hover {
-  background: rgba(220, 38, 38, 0.12);
-  border-color: rgba(220, 38, 38, 0.25);
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+}
+
+.dark .projeto-tag {
+  background: rgba(15, 23, 42, 0.75);
+  color: #cbd5e1;
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+.dark .projeto-tag:hover {
+  background: rgba(30, 41, 59, 0.9);
+  border-color: rgba(148, 163, 184, 0.35);
 }
 
 /* Dark Mode */
