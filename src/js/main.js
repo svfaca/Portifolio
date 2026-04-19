@@ -8,6 +8,11 @@ import { CertificationsManager } from './certifications.js';
 
 class Portfolio {
   constructor() {
+    this.heroParticlesInstance = null;
+    this.themeObserver = null;
+    this.isParticlesDarkTheme = null;
+    this.heroImageWrapper = null;
+
     this.themeManager = new ThemeManager();
     this.navigationManager = new NavigationManager();
     this.configManager = new ConfigManager();
@@ -20,7 +25,254 @@ initMobileMenu();
 
   init() {
     this.configManager.applyConfig();
+    this.initHeroPhotoReveal();
+    this.initHeroTyping();
     this.initProjectCards();
+    this.initHeroParticles();
+    this.initScrollReveal();
+  }
+
+  initScrollReveal() {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealTargets = Array.from(document.querySelectorAll(
+      '#sobre, #projetos, #skills, #certificacoes, #contato, #sobre .glass-card, #projetos [data-project-card], #skills .glass-card, #contato .glass-card, footer'
+    ));
+
+    if (!revealTargets.length) {
+      return;
+    }
+
+    if (prefersReducedMotion) {
+      revealTargets.forEach((element) => {
+        element.classList.add('reveal-on-scroll', 'is-visible');
+      });
+      return;
+    }
+
+    revealTargets.forEach((element, index) => {
+      element.classList.add('reveal-on-scroll');
+      element.style.setProperty('--reveal-delay', `${(index % 6) * 65}ms`);
+    });
+
+    const observer = new IntersectionObserver(
+      (entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            currentObserver.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.14,
+        rootMargin: '0px 0px -8% 0px'
+      }
+    );
+
+    revealTargets.forEach((element) => {
+      observer.observe(element);
+    });
+  }
+
+  initHeroPhotoReveal() {
+    this.heroImageWrapper = document.querySelector('.hero-image-wrapper');
+
+    if (!this.heroImageWrapper) {
+      return;
+    }
+
+    this.heroImageWrapper.classList.add('hero-photo-pending');
+    this.heroImageWrapper.classList.remove('hero-photo-visible');
+  }
+
+  revealHeroPhoto() {
+    if (!this.heroImageWrapper) {
+      return;
+    }
+
+    this.heroImageWrapper.classList.remove('hero-photo-pending');
+    this.heroImageWrapper.classList.add('hero-photo-visible');
+  }
+
+  initHeroTyping() {
+    const heroTitle = document.querySelector('[data-i18n="hero.name"]');
+
+    if (!heroTitle) {
+      this.revealHeroPhoto();
+      return;
+    }
+
+    const isEnglish = (document.documentElement.lang || '').toLowerCase().startsWith('en');
+    const prefix = isEnglish ? "Hello, I'm " : 'Olá, eu sou ';
+    const name = 'Sávio Emmanuel';
+    const phrase = `${prefix}${name}`;
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const renderTypedText = (count) => {
+      if (count <= prefix.length) {
+        heroTitle.textContent = prefix.slice(0, count);
+        return;
+      }
+
+      const typedNameLength = Math.min(count - prefix.length, name.length);
+      const typedName = name.slice(0, typedNameLength);
+      heroTitle.innerHTML = `${prefix}<span class="highlight-name">${typedName}</span>`;
+    };
+
+    if (prefersReducedMotion) {
+      heroTitle.innerHTML = `${prefix}<span class="highlight-name">${name}</span>`;
+      this.revealHeroPhoto();
+      return;
+    }
+
+    let currentIndex = 0;
+    heroTitle.textContent = '';
+
+    const typeNextChar = () => {
+      renderTypedText(currentIndex);
+      currentIndex += 1;
+
+      if (currentIndex <= phrase.length) {
+        window.setTimeout(typeNextChar, 70);
+      } else {
+        this.revealHeroPhoto();
+      }
+    };
+
+    typeNextChar();
+  }
+
+  getHeroParticlesOptions(isDarkTheme) {
+    const particleColor = isDarkTheme ? '#ffffff' : '#ef4444';
+
+    return {
+      fpsLimit: 60,
+      particles: {
+        number: {
+          value: 72,
+          density: {
+            enable: true,
+            area: 900
+          }
+        },
+        color: {
+          value: particleColor
+        },
+        links: {
+          enable: false
+        },
+        move: {
+          enable: true,
+          speed: 1.2,
+          direction: 'none',
+          random: true,
+          straight: false,
+          outModes: {
+            default: 'out'
+          }
+        },
+        opacity: {
+          value: 0.5
+        },
+        size: {
+          value: {
+            min: 1.2,
+            max: 3
+          }
+        }
+      },
+      interactivity: {
+        events: {
+          onHover: {
+            enable: true,
+            mode: 'repulse'
+          },
+          onClick: {
+            enable: true,
+            mode: 'push'
+          },
+          resize: true
+        },
+        modes: {
+          repulse: {
+            distance: 110,
+            duration: 0.35
+          },
+          push: {
+            quantity: 3
+          }
+        }
+      },
+      detectRetina: true,
+      responsive: [
+        {
+          maxWidth: 768,
+          options: {
+            particles: {
+              number: {
+                value: 42
+              },
+              links: {
+                distance: 110
+              },
+              move: {
+                speed: 1.5
+              }
+            }
+          }
+        }
+      ]
+    };
+  }
+
+  loadHeroParticlesByTheme() {
+    const isDarkTheme = document.documentElement.classList.contains('dark');
+
+    if (this.heroParticlesInstance && this.isParticlesDarkTheme === isDarkTheme) {
+      return;
+    }
+
+    this.isParticlesDarkTheme = isDarkTheme;
+
+    if (this.heroParticlesInstance) {
+      this.heroParticlesInstance.destroy();
+      this.heroParticlesInstance = null;
+    }
+
+    window.tsParticles
+      .load('tsparticles', this.getHeroParticlesOptions(isDarkTheme))
+      .then((container) => {
+        this.heroParticlesInstance = container;
+      })
+      .catch(() => {
+        this.heroParticlesInstance = null;
+      });
+  }
+
+  initHeroParticles() {
+    const heroParticlesContainer = document.getElementById('tsparticles');
+
+    // Evita erros em paginas sem HERO ou sem a lib carregada.
+    if (!heroParticlesContainer || typeof window.tsParticles === 'undefined') {
+      return;
+    }
+
+    this.loadHeroParticlesByTheme();
+
+    if (!this.themeObserver) {
+      this.themeObserver = new MutationObserver((mutations) => {
+        const hasClassMutation = mutations.some((mutation) => mutation.attributeName === 'class');
+
+        if (hasClassMutation) {
+          this.loadHeroParticlesByTheme();
+        }
+      });
+
+      this.themeObserver.observe(document.documentElement, {
+        attributes: true,
+        attributeFilter: ['class']
+      });
+    }
   }
 
   initProjectCards() {

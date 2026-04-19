@@ -124,7 +124,8 @@
 
 
     <!-- HERO SECTION -->
-    <section class="relative min-h-screen flex items-center justify-center px-6 pt-40 md:pt-24">
+    <section id="hero" class="relative min-h-screen flex items-center justify-center px-6 pt-40 md:pt-24">
+      <div id="tsparticles" aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto w-full">
         <div class="grid lg:grid-cols-2 gap-12 items-center animate-fade-in">
           
@@ -172,7 +173,7 @@
           
           <!-- Lado Direito - Profile Image -->
           <div class="flex justify-center lg:justify-end">
-            <div class="hero-image-wrapper">
+            <div class="hero-image-wrapper hero-photo-pending">
               <span class="fog-layer" aria-hidden="true"></span>
               <span class="fog-layer-2" aria-hidden="true"></span>
               <img src="assets/images/profile/pic.png"
@@ -187,6 +188,47 @@
       <!-- Scroll Indicator -->
       <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-gray-400 animate-bounce text-2xl">
         ↓
+      </div>
+    </section>
+
+    <section class="tech-bar" aria-label="Tecnologias">
+      <div class="tech-track">
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" loading="lazy"><span>Python</span></div>
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/claude/DE9A77" alt="Claude" loading="lazy"><span>Claude</span></div>
+        <div class="tech-item"><img class="logo-gpt" src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="GPT" loading="lazy"><span>GPT</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" loading="lazy"><span>TypeScript</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML" loading="lazy"><span>HTML</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS" loading="lazy"><span>CSS</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" loading="lazy"><span>JavaScript</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" loading="lazy"><span>React</span></div>
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/langchain/1c3c3c" alt="LangSmith" loading="lazy"><span>LangSmith</span></div>
+        <div class="tech-item"><img src="https://cdn.simpleicons.org/langchain/1c3c3c" alt="LangChain" loading="lazy"><span>LangChain</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" loading="lazy"><span>Node.js</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="FastAPI" loading="lazy"><span>FastAPI</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" loading="lazy"><span>Git</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" loading="lazy"><span>Docker</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" loading="lazy"><span>PostgreSQL</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" loading="lazy"><span>MongoDB</span></div>
+        <div class="tech-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind" loading="lazy"><span>Tailwind</span></div>
+
+        <!-- Duplicado para loop continuo -->
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="" loading="lazy"><span>Python</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/claude/DE9A77" alt="" loading="lazy"><span>Claude</span></div>
+        <div class="tech-item" aria-hidden="true"><img class="logo-gpt" src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="" loading="lazy"><span>GPT</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="" loading="lazy"><span>TypeScript</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="" loading="lazy"><span>HTML</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="" loading="lazy"><span>CSS</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="" loading="lazy"><span>JavaScript</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="" loading="lazy"><span>React</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/langchain/1c3c3c" alt="" loading="lazy"><span>LangSmith</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.simpleicons.org/langchain/1c3c3c" alt="" loading="lazy"><span>LangChain</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="" loading="lazy"><span>Node.js</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg" alt="" loading="lazy"><span>FastAPI</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="" loading="lazy"><span>Git</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="" loading="lazy"><span>Docker</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="" loading="lazy"><span>PostgreSQL</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="" loading="lazy"><span>MongoDB</span></div>
+        <div class="tech-item" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="" loading="lazy"><span>Tailwind</span></div>
       </div>
     </section>
 
@@ -233,6 +275,7 @@
               <div class="project-card-header flex items-center gap-3 pb-3 border-b border-slate-200/80 dark:border-slate-800/80">
                 <h3 class="min-w-0 flex-1 text-xl md:text-2xl font-bold leading-tight">
                   <a href="https://startupi.com.br/monest-apresenta-ia-que-negocia-dividas/" target="_blank" rel="noopener noreferrer" class="block text-slate-900 dark:text-red-300 hover:text-red-500 dark:hover:text-red-200 transition-colors" data-i18n="projetos.monest.title">Prompt Engineer — Monest</a>
+                  <span class="mt-1 block text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400">02/26 - Atual (Profissional)</span>
                 </h3>
                 <button type="button" data-project-toggle aria-expanded="true" aria-controls="monest-body" aria-label="Fechar detalhes" class="project-card-toggle w-10 h-10 shrink-0 rounded-full border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 text-slate-700 dark:text-slate-200 flex items-center justify-center shadow-sm hover:shadow-md hover:border-red-400 dark:hover:border-red-500 transition-all">
                   <span class="project-card-toggle-icon text-lg leading-none">&gt;</span>
@@ -268,6 +311,7 @@
               <div class="project-card-header flex items-center gap-3 pb-3 border-b border-slate-200/80 dark:border-slate-800/80">
                 <h3 class="min-w-0 flex-1 text-xl md:text-2xl font-bold leading-tight">
                   <a href="AtenaAI/index.html" target="_blank" rel="noopener noreferrer" class="block text-slate-900 dark:text-indigo-300 hover:text-indigo-500 dark:hover:text-indigo-200 transition-colors" data-i18n="projetos.atenaai.title">AtenaAI</a>
+                  <span class="mt-1 block text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400">Em desenvolvimento</span>
                 </h3>
                 <button type="button" data-project-toggle aria-expanded="true" aria-controls="atenaai-body" aria-label="Fechar detalhes" class="project-card-toggle w-10 h-10 shrink-0 rounded-full border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 text-slate-700 dark:text-slate-200 flex items-center justify-center shadow-sm hover:shadow-md hover:border-indigo-400 dark:hover:border-indigo-500 transition-all">
                   <span class="project-card-toggle-icon text-lg leading-none">&gt;</span>
@@ -302,7 +346,10 @@
             </div>
             <div class="project-card-content p-5 flex flex-col flex-1">
               <div class="project-card-header flex items-center gap-3 pb-3 border-b border-slate-200/80 dark:border-slate-800/80">
-                <h3 class="min-w-0 flex-1 text-xl md:text-2xl font-bold text-slate-900 dark:text-teal-300 leading-tight" data-i18n="projetos.vision.title">Visão Computacional Aplicada ao Varejo</h3>
+                <h3 class="min-w-0 flex-1 text-xl md:text-2xl font-bold text-slate-900 dark:text-teal-300 leading-tight">
+                  <span data-i18n="projetos.vision.title">Visão Computacional Aplicada ao Varejo</span>
+                  <span class="mt-1 block text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400">Em desenvolvimento</span>
+                </h3>
                 <button type="button" data-project-toggle aria-expanded="true" aria-controls="vision-body" aria-label="Fechar detalhes" class="project-card-toggle w-10 h-10 shrink-0 rounded-full border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 text-slate-700 dark:text-slate-200 flex items-center justify-center shadow-sm hover:shadow-md hover:border-teal-400 dark:hover:border-teal-500 transition-all">
                   <span class="project-card-toggle-icon text-lg leading-none">&gt;</span>
                 </button>
@@ -539,6 +586,7 @@
       </div>
     </footer>
   </div>
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 <script type="module" src="src/js/main.js"></script>
 </body>
 </html>
