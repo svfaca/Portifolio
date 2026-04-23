@@ -62,12 +62,14 @@ const translations = {
     'projetos.titulo': 'Experiências & Projetos',
     'projetos.desc': 'Veja abaixo algumas das minhas principais experiências e projetos com foco em IA aplicada e desenvolvimento de sistemas inteligentes.',
     'projetos.monest.title': 'Prompt Engineer — Monest',
+    'projetos.monest.periodo': '02/26 - Atual (Profissional)',
     'projetos.monest.desc': 'Desenvolvimento de soluções baseadas em Inteligência Artificial para o mercado, com foco na criação, manutenção e otimização de prompts para sistemas com LLMs. Atuação direta na avaliação da qualidade das respostas e melhoria contínua de fluxos conversacionais.',
     'projetos.monest.feature1': 'Avaliação de respostas de modelos de linguagem',
     'projetos.monest.feature2': 'Criação e otimização de prompts',
     'projetos.monest.feature3': 'Identificação de falhas e inconsistências',
     'projetos.monest.feature4': 'LangChain e LangSmith para testes',
     'projetos.atenaai.title': 'AtenaAI',
+    'projetos.status': 'Em desenvolvimento',
     'projetos.atenaai.desc': 'Plataforma de assistente educacional com IA, utilizando modelos de linguagem (LLMs) para geração de respostas inteligentes e contextualizadas em interações com usuários. O sistema inclui controle de comportamento, avaliação da qualidade das respostas e arquitetura fullstack integrada com APIs de IA.',
     'projetos.atenaai.feature1': 'Geração de respostas com LLM',
     'projetos.atenaai.feature2': 'Controle de comportamento e contexto',
@@ -180,12 +182,14 @@ const translations = {
     'projetos.titulo': 'Experiences & Projects',
     'projetos.desc': 'Below are some of my main experiences and projects focused on applied AI and intelligent system development.',
     'projetos.monest.title': 'Prompt Engineer — Monest',
+    'projetos.monest.periodo': '02/26 - Current (Professional)',
     'projetos.monest.desc': 'Development of AI-powered solutions for the market, focused on creating, maintaining, and optimizing prompts for LLM systems. Responsible for evaluating response quality, identifying inconsistencies, and continuously improving conversational flows.',
     'projetos.monest.feature1': 'Language model response evaluation',
     'projetos.monest.feature2': 'Prompt creation and optimization',
     'projetos.monest.feature3': 'Failure and inconsistency identification',
     'projetos.monest.feature4': 'LangChain and LangSmith for testing',
     'projetos.atenaai.title': 'AtenaAI',
+    'projetos.status': 'Under development',
     'projetos.atenaai.desc': 'Educational assistant platform powered by AI, using language models (LLMs) to generate intelligent and contextual responses in user interactions. The system includes behavior control, response quality evaluation, and a fullstack architecture integrated with AI APIs.',
     'projetos.atenaai.feature1': 'LLM-based response generation',
     'projetos.atenaai.feature2': 'Behavior and context control',
@@ -235,8 +239,8 @@ window.translatePage = translatePage;
 // Expor translations globalmente para uso em outros scripts
 window.translations = translations;
 
-// Detecta idioma do navegador ao carregar
-document.addEventListener('DOMContentLoaded', () => {
+// Função para aplicar tradução e mostrar página
+function initTranslation() {
   const lang = navigator.language || navigator.userLanguage;
   if (lang && lang.toLowerCase().startsWith('en')) {
     translatePage('en');
@@ -245,4 +249,14 @@ document.addEventListener('DOMContentLoaded', () => {
     translatePage('pt');
     document.documentElement.lang = 'pt-BR';
   }
-});
+  // Mostra a página após tradução ser aplicada
+  document.documentElement.style.opacity = '1';
+}
+
+// Executa imediatamente se DOM já está pronto, caso contrário aguarda
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initTranslation);
+} else {
+  // DOM já está pronto, aplica tradução imediatamente
+  initTranslation();
+}

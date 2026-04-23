@@ -46,7 +46,8 @@ Portifolio/
 ## 🛠️ Tecnologias
 
 - **Frontend**: HTML5, CSS3, JavaScript (ES6+)
-- **Estilos**: Tailwind CSS
+- **Estilos**: Tailwind CSS (com modo dark)
+- **Traduções**: i18n customizado (PT/EN)
 - **Fontes**: Space Grotesk, JetBrains Mono
 - **Ícones**: SVG inline
 
@@ -77,13 +78,21 @@ Edite os arquivos em `src/config/` para atualizar:
 - Redes sociais
 - Cores do tema
 
+## 🌍 Internacionalização (i18n)
+
+O portfólio suporta português e inglês com tradução automática baseado no idioma do navegador.
+
+- **Arquivo de traduções**: `src/js/translate.js`
+- **Idiomas suportados**: Português (PT) e Inglês (EN)
+- **Implementação**: Atributo `data-i18n` nos elementos HTML
+
 ## 📝 Seções
 
 1. **Navegação** - Menu fixo com scroll suave
 2. **Hero** - Apresentação principal
 3. **Sobre** - Breve descrição
 4. **Skills** - Competências com barras de progresso
-5. **Projetos** - Portfólio de trabalhos
+5. **Projetos** - Portfólio de trabalhos (Monest, AtenaAI, Computer Vision)
 6. **Certificações** - Qualificações
 7. **Contato** - Informações de contato
 8. **Footer** - Rodapé com créditos
@@ -98,7 +107,6 @@ Edite os arquivos em `src/config/` para atualizar:
 ## ⚠️ Observações
 
 - O arquivo `assets/curriculo.pdf` não está presente no repositório. Adicione seu currículo para habilitar o botão de download.
-- O branch principal deste projeto pode ser diferente. Você está atualmente no branch `recuperacao-arquivos-locais`.
 
 ## 🎨 Personalização de Cores
 

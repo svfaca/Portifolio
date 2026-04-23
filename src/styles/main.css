@@ -27,18 +27,31 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 120, 120, 0.3) transparent;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.dark html {
+  scrollbar-color: rgba(100, 100, 100, 0.4) transparent;
 }
 
 body {
   font-family: var(--font-body);
   color: var(--color-text);
   line-height: 1.6;
-  overflow-x: hidden;
+  overflow: visible;
+  width: 100%;
 }
 
 /* Scrollbar limpa */
 ::-webkit-scrollbar {
   width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -71,13 +84,13 @@ body {
 /* Gradientes Background - Light Mode */
 .gradient-bg {
   background: linear-gradient(180deg, #fafafa 0%, #f5f5f5 50%, #fafafa 100%);
-  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Gradientes Background - Dark Mode */
 .dark .gradient-bg {
   background: linear-gradient(135deg, #0e0e0f 0%, #1a1a1a 50%, #0e0e0f 100%) !important;
-  overflow-x: hidden;
+  width: 100%;
 }
 
 /* Efeitos de Card */

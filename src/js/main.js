@@ -25,11 +25,36 @@ initMobileMenu();
 
   init() {
     this.configManager.applyConfig();
-    this.initHeroPhotoReveal();
-    this.initHeroTyping();
-    this.initProjectCards();
     this.initHeroParticles();
     this.initScrollReveal();
+    
+    // Aguarda a tradução ser aplicada antes de iniciar animações do hero
+    this.waitForHeroElementsAndInit();
+  }
+
+  waitForHeroElementsAndInit() {
+    const heroTitle = document.querySelector('[data-i18n="hero.name"]');
+    
+    if (heroTitle && heroTitle.textContent.trim()) {
+      // Elementos já estão traduzidos, inicializa logo
+      this.initHeroPhotoReveal();
+      this.initHeroTyping();
+      this.initProjectCards();
+    } else {
+      // Aguarda a tradução ser aplicada (com timeout reduzido)
+      const checkInterval = setInterval(() => {
+        const heroTitle = document.querySelector('[data-i18n="hero.name"]');
+        if (heroTitle && heroTitle.textContent.trim()) {
+          clearInterval(checkInterval);
+          this.initHeroPhotoReveal();
+          this.initHeroTyping();
+          this.initProjectCards();
+        }
+      }, 20);
+      
+      // Timeout de segurança (máx 1s)
+      setTimeout(() => clearInterval(checkInterval), 1000);
+    }
   }
 
   initScrollReveal() {

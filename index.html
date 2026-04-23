@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR" class="h-full">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,11 @@
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Script inline para esconder página até tradução ser aplicada (remove flash) -->
+  <script>
+    document.documentElement.style.opacity = '0';
+    document.documentElement.style.transition = 'opacity 0.2s ease-in';
+  </script>
   <script type="module" src="src/js/translate.js"></script>
   <script>
   tailwind.config = {
@@ -27,8 +32,8 @@
   <link rel="stylesheet" href="src/styles/main.css">
   
 </head>
-<body class="h-full font-heading bg-slate-50 dark:bg-slate-950 text-gray-800 dark:text-gray-100 transition-colors">
-  <div id="app-wrapper" class="w-full min-h-full gradient-bg">
+<body class="font-heading bg-slate-50 dark:bg-slate-950 text-gray-800 dark:text-gray-100 transition-colors">
+  <div id="app-wrapper" class="w-full gradient-bg">
     <div id="top"></div>
 
     <!-- NAVEGAÇÃO DESKTOP -->
@@ -131,8 +136,6 @@
           
           <!-- Lado Esquerdo - Apresentação -->
           <div class="flex flex-col justify-center">
-            <span class="text-gray-500 text-sm font-medium tracking-wide mb-6 block" data-i18n="hero.hello">HELLO</span>
-            
             <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight" data-i18n="hero.name">
               I'm <span class="highlight-name">Sávio</span> Emmanuel
             </h1>
@@ -275,7 +278,7 @@
               <div class="project-card-header flex items-center gap-3 pb-3 border-b border-slate-200/80 dark:border-slate-800/80">
                 <h3 class="min-w-0 flex-1 text-xl md:text-2xl font-bold leading-tight">
                   <a href="https://startupi.com.br/monest-apresenta-ia-que-negocia-dividas/" target="_blank" rel="noopener noreferrer" class="block text-slate-900 dark:text-red-300 hover:text-red-500 dark:hover:text-red-200 transition-colors" data-i18n="projetos.monest.title">Prompt Engineer — Monest</a>
-                  <span class="mt-1 block text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400">02/26 - Atual (Profissional)</span>
+                  <span class="mt-1 block text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400" data-i18n="projetos.monest.periodo">02/26 - Atual (Profissional)</span>
                 </h3>
                 <button type="button" data-project-toggle aria-expanded="true" aria-controls="monest-body" aria-label="Fechar detalhes" class="project-card-toggle w-10 h-10 shrink-0 rounded-full border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 text-slate-700 dark:text-slate-200 flex items-center justify-center shadow-sm hover:shadow-md hover:border-red-400 dark:hover:border-red-500 transition-all">
                   <span class="project-card-toggle-icon text-lg leading-none">&gt;</span>
@@ -311,7 +314,7 @@
               <div class="project-card-header flex items-center gap-3 pb-3 border-b border-slate-200/80 dark:border-slate-800/80">
                 <h3 class="min-w-0 flex-1 text-xl md:text-2xl font-bold leading-tight">
                   <a href="AtenaAI/index.html" target="_blank" rel="noopener noreferrer" class="block text-slate-900 dark:text-indigo-300 hover:text-indigo-500 dark:hover:text-indigo-200 transition-colors" data-i18n="projetos.atenaai.title">AtenaAI</a>
-                  <span class="mt-1 block text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400">Em desenvolvimento</span>
+                  <span class="mt-1 block text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400" data-i18n="projetos.status">Em desenvolvimento</span>
                 </h3>
                 <button type="button" data-project-toggle aria-expanded="true" aria-controls="atenaai-body" aria-label="Fechar detalhes" class="project-card-toggle w-10 h-10 shrink-0 rounded-full border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 text-slate-700 dark:text-slate-200 flex items-center justify-center shadow-sm hover:shadow-md hover:border-indigo-400 dark:hover:border-indigo-500 transition-all">
                   <span class="project-card-toggle-icon text-lg leading-none">&gt;</span>
@@ -348,7 +351,7 @@
               <div class="project-card-header flex items-center gap-3 pb-3 border-b border-slate-200/80 dark:border-slate-800/80">
                 <h3 class="min-w-0 flex-1 text-xl md:text-2xl font-bold text-slate-900 dark:text-teal-300 leading-tight">
                   <span data-i18n="projetos.vision.title">Visão Computacional Aplicada ao Varejo</span>
-                  <span class="mt-1 block text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400">Em desenvolvimento</span>
+                  <span class="mt-1 block text-xs md:text-sm font-medium text-slate-500 dark:text-slate-400" data-i18n="projetos.status">Em desenvolvimento</span>
                 </h3>
                 <button type="button" data-project-toggle aria-expanded="true" aria-controls="vision-body" aria-label="Fechar detalhes" class="project-card-toggle w-10 h-10 shrink-0 rounded-full border border-slate-300/80 dark:border-slate-700 bg-white/90 dark:bg-slate-900/80 text-slate-700 dark:text-slate-200 flex items-center justify-center shadow-sm hover:shadow-md hover:border-teal-400 dark:hover:border-teal-500 transition-all">
                   <span class="project-card-toggle-icon text-lg leading-none">&gt;</span>
