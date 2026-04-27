@@ -250,6 +250,7 @@ function initTranslation() {
     document.documentElement.lang = 'pt-BR';
   }
   // Mostra a página após tradução ser aplicada
+  document.documentElement.style.visibility = 'visible';
   document.documentElement.style.opacity = '1';
 }
 

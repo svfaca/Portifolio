@@ -4,6 +4,7 @@ import { ThemeManager } from './theme-toggle.js';
 import { NavigationManager } from './navigation.js';
 import { ConfigManager } from './config-manager.js';
 import { CertificationsManager } from './certifications.js';
+import { HeroScrollHeaderManager } from './hero-scroll-header.js';
 
 
 class Portfolio {
@@ -17,6 +18,7 @@ class Portfolio {
     this.navigationManager = new NavigationManager();
     this.configManager = new ConfigManager();
     this.certificationsManager = new CertificationsManager();
+    this.heroScrollHeaderManager = new HeroScrollHeaderManager();
     
 initMobileMenu();
 
@@ -100,23 +102,43 @@ initMobileMenu();
   }
 
   initHeroPhotoReveal() {
-    this.heroImageWrapper = document.querySelector('.hero-image-wrapper');
+    // Encontra TODAS as wrappers de imagem (mobile + desktop)
+    const heroImageWrappers = document.querySelectorAll('.hero-image-wrapper');
 
-    if (!this.heroImageWrapper) {
+    if (!heroImageWrappers.length) {
       return;
     }
 
-    this.heroImageWrapper.classList.add('hero-photo-pending');
-    this.heroImageWrapper.classList.remove('hero-photo-visible');
+    // Armazena para uso em revealHeroPhoto()
+    this.heroImageWrappers = heroImageWrappers;
+    
+    // Adiciona classe inicial a todas
+    heroImageWrappers.forEach(wrapper => {
+      wrapper.classList.add('hero-photo-pending');
+      wrapper.classList.remove('hero-photo-visible');
+    });
+
+    // Encontra o container dos botões (logo + hamburguer) no mobile
+    // Já tem mobile-buttons-pending no HTML, só armazena a referência
+    this.mobileButtonsContainer = document.getElementById('mobile-nav-buttons');
   }
 
   revealHeroPhoto() {
-    if (!this.heroImageWrapper) {
+    if (!this.heroImageWrappers || !this.heroImageWrappers.length) {
       return;
     }
 
-    this.heroImageWrapper.classList.remove('hero-photo-pending');
-    this.heroImageWrapper.classList.add('hero-photo-visible');
+    // Remove classe de pendência de TODAS as wrappers
+    this.heroImageWrappers.forEach(wrapper => {
+      wrapper.classList.remove('hero-photo-pending');
+      wrapper.classList.add('hero-photo-visible');
+    });
+
+    // Anima os botões em conjunto com a foto
+    if (this.mobileButtonsContainer) {
+      this.mobileButtonsContainer.classList.remove('mobile-buttons-pending');
+      this.mobileButtonsContainer.classList.add('mobile-buttons-visible');
+    }
   }
 
   initHeroTyping() {
