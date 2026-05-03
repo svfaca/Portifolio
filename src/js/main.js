@@ -29,6 +29,7 @@ initMobileMenu();
     this.configManager.applyConfig();
     this.initHeroParticles();
     this.initScrollReveal();
+    this.initProfileToggle();
     
     // Aguarda a tradução ser aplicada antes de iniciar animações do hero
     this.waitForHeroElementsAndInit();
@@ -382,6 +383,33 @@ initMobileMenu();
       }
     });
   }
+initProfileToggle() {
+  const profiles = document.querySelectorAll('.profile-toggle');
+
+  profiles.forEach(profile => {
+    profile.addEventListener('click', () => {
+
+      if (profile.classList.contains('animating')) return;
+
+      profile.classList.add('animating');
+
+      // troca no meio da animação
+      setTimeout(() => {
+        profile.classList.toggle('active');
+      }, 350);
+
+      // limpa estado
+      setTimeout(() => {
+        profile.classList.remove('animating');
+      }, 800);
+
+    });
+  });
+
+  // preload da imagem animada (evita travar)
+  const preload = new Image();
+  preload.src = 'assets/images/profile/pic-animated.png';
+}
 }
 
 // Inicialização

@@ -349,7 +349,7 @@ body {
 /* Animação de teletransporte */
 #mobile-nav-buttons.mobile-buttons-visible {
   animation: buttonsTeleportReveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 @keyframes buttonsTeleportReveal {
@@ -528,8 +528,8 @@ nav {
   filter: none;
 }
 
-.hero-image-wrapper.hero-photo-visible .profile-image {
-  animation: profileTeleportReveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.hero-image-wrapper.hero-photo-visible .profile-image.base {
+  animation: profileTeleportReveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .profile-image {
@@ -730,7 +730,7 @@ body:not(.dark) .fog-layer-2 {
   width: 100%;
   height: 100%;
   z-index: 0;
-  pointer-events: auto;
+  pointer-events: none;
 }
 
 /* Mantem o conteudo acima das particulas sem alterar o layout original */
@@ -883,7 +883,7 @@ body:not(.dark) .fog-layer-2 {
 
   .hero-image-wrapper .profile-image,
   .hero-image-wrapper.hero-photo-pending .profile-image,
-  .hero-image-wrapper.hero-photo-visible .profile-image {
+  .hero-image-wrapper.hero-photo-visible .profile-image.base {
     clip-path: inset(0 0 0 0);
     animation: none;
     filter: none;
@@ -891,3 +891,125 @@ body:not(.dark) .fog-layer-2 {
   }
 }
 
+/* ===== TOGGLE FOTO PERFIL ===== */
+
+.profile-toggle {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* imagens não bloqueiam clique */
+.profile-toggle .profile-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+
+.profile-toggle .base {
+  position: relative;
+  z-index: 2;
+  opacity: 1;
+}
+
+.profile-toggle .animated {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  opacity: 0;
+  transform: scale(0.95);
+}
+
+.profile-toggle.active .base {
+  opacity: 0;
+  transform: scale(1.05);
+}
+
+.profile-toggle.active .animated {
+  opacity: 1;
+  transform: scale(1);
+}
+/* quando ativo, mata a animação da base */
+.profile-toggle.active .base {
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+
+/* ativa animação */
+.profile-toggle.animating .energy-overlay {
+  animation: energyPulse 0.8s ease forwards;
+}
+
+/* distorção da imagem */
+.profile-toggle.animating .profile-image {
+  animation: glitchWarp 0.8s ease;
+}
+
+/* energia azul */
+@keyframes energyPulse {
+  0% {
+    opacity: 0;
+    box-shadow: 0 0 0px rgba(0, 150, 255, 0);
+  }
+  30% {
+    opacity: 1;
+    box-shadow: 
+      0 0 20px rgba(0, 150, 255, 0.8),
+      0 0 60px rgba(0, 150, 255, 0.6);
+  }
+  60% {
+    box-shadow: 
+      0 0 40px rgba(0, 150, 255, 1),
+      0 0 100px rgba(0, 150, 255, 0.7);
+  }
+  100% {
+    opacity: 0;
+    box-shadow: 0 0 0px rgba(0, 150, 255, 0);
+  }
+}
+
+/* distorção */
+@keyframes glitchWarp {
+  0% { transform: scale(1); filter: none; }
+  20% { transform: scale(1.05) skewX(5deg); filter: hue-rotate(180deg); }
+  40% { transform: scale(0.95) skewX(-5deg); filter: blur(2px); }
+  60% { transform: scale(1.02); filter: brightness(1.5); }
+  100% { transform: scale(1); filter: none; }
+}
+/* animação limpa sem overlay */
+.profile-toggle.animating .profile-image {
+  animation: warpEnergy 0.8s ease;
+}
+
+/* efeito sem forma */
+@keyframes warpEnergy {
+  0% {
+    transform: scale(1);
+    filter: none;
+  }
+
+  25% {
+    transform: scale(1.05) skewX(6deg);
+    filter: hue-rotate(200deg) brightness(2) saturate(2);
+  }
+
+  50% {
+    transform: scale(0.95) skewX(-6deg);
+    filter: blur(2px) hue-rotate(220deg);
+  }
+
+  75% {
+    transform: scale(1.02);
+    filter: brightness(1.5) hue-rotate(200deg);
+  }
+
+  100% {
+    transform: scale(1);
+    filter: none;
+  }
+}

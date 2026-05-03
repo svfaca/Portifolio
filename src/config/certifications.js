@@ -18,7 +18,7 @@ export const certifications = {
       id: 1,
       nome: "Bacharelado em Ciência da Computação",
       instituicao: "Feso - Fundação Educacional Serra dos Órgãos",
-      data: "jan 2024 - dez 2029",
+      data: "jan 2024 - dez 2027",
       tipo: "pdf",
       arquivo: "3934aabc-b615-4df8-8f32-4415e3f25bf2.pdf",
       importancia: 1,
