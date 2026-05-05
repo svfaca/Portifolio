@@ -349,7 +349,7 @@ body {
 /* Animação de teletransporte */
 #mobile-nav-buttons.mobile-buttons-visible {
   animation: buttonsTeleportReveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 @keyframes buttonsTeleportReveal {
