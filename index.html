@@ -306,7 +306,7 @@
           <p class="text-gray-600 dark:text-gray-300 text-lg mb-6 text-center" data-i18n="projetos.desc">Veja abaixo algumas das minhas principais experiências e projetos com foco em IA aplicada e desenvolvimento de sistemas inteligentes.</p>
         </div>
         
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-start" id="projects-grid">
           <!-- Experiência Monest - Prompt Engineer -->
           <article data-project-card class="project-card rounded-2xl overflow-hidden card-hover block shadow-2xl w-full flex flex-col self-start" style="background: linear-gradient(180deg, #d13a3a 0%, #a61b1b 100%);">
             <div class="h-36 md:h-44 flex items-center justify-center bg-transparent">
@@ -346,7 +346,7 @@
           </article>
 
           <!-- Projeto AtenaAI -->
-          <article data-project-card class="project-card rounded-2xl overflow-hidden card-hover block shadow-2xl w-full flex flex-col self-start" style="background: linear-gradient(180deg, #5b5fe8 0%, #4338ca 100%);">
+          <article data-project-card class="project-card rounded-2xl overflow-hidden card-hover shadow-2xl w-full hidden md:flex flex-col self-start" style="background: linear-gradient(180deg, #5b5fe8 0%, #4338ca 100%);">
             <div class="h-36 md:h-44 flex items-center justify-center bg-transparent">
               <a href="AtenaAI/index.html" target="_blank" rel="noopener noreferrer" aria-label="Abrir página da AtenaAI" class="block">
                 <img src="assets/icons/atenaai-logo.png" alt="Logo AtenaAI" class="w-24 h-24 md:w-32 md:h-32 object-contain" style="filter: drop-shadow(0 0 8px rgba(255,255,255,0.12));" aria-hidden="true">
@@ -382,7 +382,7 @@
           </article>
 
           <!-- Projeto Visao Computacional -->
-          <article data-project-card class="project-card rounded-2xl overflow-hidden card-hover block shadow-2xl w-full flex flex-col self-start" style="background: linear-gradient(180deg, #0f766e 0%, #115e59 100%);">
+          <article data-project-card class="project-card rounded-2xl overflow-hidden card-hover shadow-2xl w-full hidden md:flex flex-col self-start" style="background: linear-gradient(180deg, #0f766e 0%, #115e59 100%);">
             <div class="h-36 md:h-44 flex items-center justify-center bg-transparent">
               <svg class="w-24 h-24 md:w-32 md:h-32 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="filter: drop-shadow(0 0 8px rgba(255,255,255,0.12));" aria-hidden="true">
                 <rect x="3" y="6" width="12" height="12" rx="2.2"></rect>
@@ -417,6 +417,13 @@
               </div>
             </div>
           </article>
+        </div>
+        
+        <!-- Botão Ver Mais Projetos (Mobile) -->
+        <div class="md:hidden flex justify-center mt-8">
+          <button id="load-more-projects-btn" class="px-8 py-3 bg-red-600 text-white rounded font-semibold hover:bg-red-700 transition-colors">
+            <span data-i18n="projetos.vermais">Ver mais</span> <span id="projects-count">2</span> <span data-i18n="projetos.projetos">projetos</span>
+          </button>
         </div>
       </div>
     </section>

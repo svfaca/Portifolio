@@ -30,6 +30,7 @@ initMobileMenu();
     this.initHeroParticles();
     this.initScrollReveal();
     this.initProfileToggle();
+    this.initMobileProjectsLoadMore();
     
     // Aguarda a tradução ser aplicada antes de iniciar animações do hero
     this.waitForHeroElementsAndInit();
@@ -429,6 +430,35 @@ initProfileToggle() {
   // preload da imagem animada (evita travar)
   const preload = new Image();
   preload.src = 'assets/images/profile/pic-animated.png';
+}
+
+initMobileProjectsLoadMore() {
+  const loadMoreBtn = document.getElementById('load-more-projects-btn');
+  const hiddenCards = document.querySelectorAll('article[data-project-card].hidden');
+
+  if (!loadMoreBtn || !hiddenCards.length) {
+    return;
+  }
+
+  loadMoreBtn.addEventListener('click', () => {
+    // Revelar projetos com animação
+    hiddenCards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.remove('hidden');
+        card.classList.add('flex');
+      }, index * 100); // Pequeno delay entre revelações
+    });
+
+    // Esconder botão com fade out
+    loadMoreBtn.style.opacity = '1';
+    loadMoreBtn.style.transition = 'opacity 0.3s ease';
+    loadMoreBtn.style.opacity = '0';
+    loadMoreBtn.style.pointerEvents = 'none';
+
+    setTimeout(() => {
+      loadMoreBtn.style.display = 'none';
+    }, 300);
+  });
 }
 }
 
