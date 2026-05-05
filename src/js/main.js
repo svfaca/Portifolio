@@ -386,24 +386,44 @@ initMobileMenu();
 initProfileToggle() {
   const profiles = document.querySelectorAll('.profile-toggle');
 
+  const toggleProfile = (profile) => {
+    if (profile.classList.contains('animating')) return;
+
+    profile.classList.add('animating');
+
+    // troca no meio da animação
+    setTimeout(() => {
+      profile.classList.toggle('active');
+    }, 350);
+
+    // limpa estado
+    setTimeout(() => {
+      profile.classList.remove('animating');
+    }, 800);
+  };
+
   profiles.forEach(profile => {
+    // Click manual
     profile.addEventListener('click', () => {
-
-      if (profile.classList.contains('animating')) return;
-
-      profile.classList.add('animating');
-
-      // troca no meio da animação
-      setTimeout(() => {
-        profile.classList.toggle('active');
-      }, 350);
-
-      // limpa estado
-      setTimeout(() => {
-        profile.classList.remove('animating');
-      }, 800);
-
+      toggleProfile(profile);
     });
+
+    // Comportamento automático ao carregar
+    // Aguarda 4 segundos, alterna para animada, aguarda 2 segundos, volta
+    setTimeout(() => {
+      // Vai para a imagem animada
+      toggleProfile(profile);
+
+      // Aguarda 4 segundos e volta à imagem normal
+      setTimeout(() => {
+        toggleProfile(profile);
+
+        // Inicia o loop de alternância automática a cada 15 segundos
+        setInterval(() => {
+          toggleProfile(profile);
+        }, 15000);
+      }, 4000);
+    }, 4000);
   });
 
   // preload da imagem animada (evita travar)
