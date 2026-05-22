@@ -386,6 +386,8 @@ initMobileMenu();
   }
 initProfileToggle() {
   const profiles = document.querySelectorAll('.profile-toggle');
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
   const toggleProfile = (profile) => {
     if (profile.classList.contains('animating')) return;
@@ -408,6 +410,10 @@ initProfileToggle() {
     profile.addEventListener('click', () => {
       toggleProfile(profile);
     });
+
+    if (prefersReducedMotion || isMobile) {
+      return;
+    }
 
     // Comportamento automático ao carregar
     // Aguarda 4 segundos, alterna para animada, aguarda 2 segundos, volta
