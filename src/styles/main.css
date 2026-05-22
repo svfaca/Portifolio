@@ -383,10 +383,22 @@ body {
     width: 220px;
   }
 
+  .hero-image-wrapper {
+    max-width: 320px;
+  }
+
+  .hero-image-wrapper.hero-photo-visible .profile-image.base,
+  .profile-toggle.animating .profile-image {
+    animation: none;
+  }
+
   .hero-image-wrapper::before,
-  .hero-image-wrapper::after {
-    opacity: 0.4;
-    filter: blur(60px);
+  .hero-image-wrapper::after,
+  .fog-layer,
+  .fog-layer-2 {
+    opacity: 0.22;
+    filter: blur(28px);
+    animation: none;
   }
 
   h1 {
