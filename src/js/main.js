@@ -300,9 +300,10 @@ initMobileMenu();
 
   initHeroParticles() {
     const heroParticlesContainer = document.getElementById('tsparticles');
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
     // Evita erros em paginas sem HERO ou sem a lib carregada.
-    if (!heroParticlesContainer || typeof window.tsParticles === 'undefined') {
+    if (!heroParticlesContainer || typeof window.tsParticles === 'undefined' || isMobile) {
       return;
     }
 
