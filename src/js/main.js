@@ -157,15 +157,18 @@ initMobileMenu();
     const phrase = `${prefix}${name}`;
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    const renderTypedText = (count) => {
-      if (count <= prefix.length) {
-        heroTitle.textContent = prefix.slice(0, count);
-        return;
-      }
+    // Ensure heroTitle has a stable structure: prefix text node + a span for the typed name
+    heroTitle.textContent = prefix;
+    let nameSpan = heroTitle.querySelector('.highlight-name');
+    if (!nameSpan) {
+      nameSpan = document.createElement('span');
+      nameSpan.className = 'highlight-name';
+      heroTitle.appendChild(nameSpan);
+    }
 
-      const typedNameLength = Math.min(count - prefix.length, name.length);
-      const typedName = name.slice(0, typedNameLength);
-      heroTitle.innerHTML = `${prefix}<span class="highlight-name">${typedName}</span>`;
+    const renderTypedName = (typedCount) => {
+      // Update only the name span's textContent to avoid reparsing HTML
+      nameSpan.textContent = name.slice(0, typedCount);
     };
 
     if (prefersReducedMotion) {
@@ -174,21 +177,41 @@ initMobileMenu();
       return;
     }
 
-    let currentIndex = 0;
-    heroTitle.textContent = '';
+    let currentChar = 0;
+    const targetNameLength = name.length;
 
-    const typeNextChar = () => {
-      renderTypedText(currentIndex);
-      currentIndex += 1;
+    // If reduced motion requested, show full text immediately
+    if (prefersReducedMotion) {
+      nameSpan.textContent = name;
+      this.revealHeroPhoto();
+      return;
+    }
 
-      if (currentIndex <= phrase.length) {
-        window.setTimeout(typeNextChar, 70);
+    // Use requestAnimationFrame to drive typing at ~70ms per character
+    const msPerChar = 70;
+    let lastTimestamp = null;
+
+    const step = (timestamp) => {
+      if (lastTimestamp === null) lastTimestamp = timestamp;
+      const elapsed = timestamp - lastTimestamp;
+
+      if (elapsed >= msPerChar) {
+        // Advance one character and reset timer
+        currentChar += 1;
+        renderTypedName(currentChar);
+        lastTimestamp = timestamp;
+      }
+
+      if (currentChar < targetNameLength) {
+        window.requestAnimationFrame(step);
       } else {
+        // Typing complete, reveal hero photo
         this.revealHeroPhoto();
       }
     };
 
-    typeNextChar();
+    // Start the rAF typing loop
+    window.requestAnimationFrame(step);
   }
 
   getHeroParticlesOptions(isDarkTheme) {
