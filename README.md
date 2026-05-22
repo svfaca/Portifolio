@@ -70,6 +70,23 @@ python -m http.server 8000
 http://localhost:8000
 ```
 
+### Com Vite (bundling)
+
+Instale dependências e rode o servidor de desenvolvimento com Vite:
+
+```bash
+npm install
+npm run dev
+```
+
+Para gerar o build otimizado:
+
+```bash
+npm run build
+npm run preview    # opcional: pré-visualizar o build
+```
+
+
 ### Personalização
 
 Edite os arquivos em `src/config/` para atualizar:

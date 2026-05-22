@@ -638,7 +638,45 @@
       </div>
     </footer>
   </div>
-<script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+  <script>
+    // Lazy-load tsParticles only on non-mobile / non-slow connections
+    (function loadTsParticlesIfNeeded() {
+      function shouldLoad() {
+        if (window.innerWidth < 768) return false; // skip on small screens
+        try {
+          const nav = navigator.connection || {};
+          if (nav.saveData) return false; // user requested reduced data
+          const slow = nav.effectiveType && /(2g)/i.test(nav.effectiveType);
+          if (slow) return false;
+        } catch (e) {
+          // ignore
+        }
+        return true;
+      }
+
+      function insertScript() {
+        if (document.querySelector('script[data-tsparticles-loader]')) return;
+        const s = document.createElement('script');
+        s.setAttribute('data-tsparticles-loader', '1');
+        s.src = 'https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js';
+        s.defer = true;
+        s.onload = function() {
+          // If portfolio already initialized, ask it to load particles
+          try {
+            if (window.portfolio && typeof window.portfolio.loadHeroParticlesByTheme === 'function') {
+              window.portfolio.loadHeroParticlesByTheme();
+            }
+          } catch (e) { /* ignore */ }
+        };
+        document.head.appendChild(s);
+      }
+
+      if (shouldLoad()) {
+        if (document.readyState === 'complete') insertScript();
+        else window.addEventListener('load', () => setTimeout(insertScript, 300));
+      }
+    })();
+  </script>
 <script type="module" src="src/js/main.js"></script>
 </body>
 </html>
