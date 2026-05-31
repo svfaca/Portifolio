@@ -587,9 +587,35 @@ initProfileToggle() {
     }, 4000);
   });
 
-  // preload da imagem animada (evita travar)
-  const preload = new Image();
-  preload.src = 'assets/images/profile/pic-animated.png';
+  const preloadSources = [
+    'assets/images/profile/pic.avif',
+    'assets/images/profile/pic-animated.avif'
+  ];
+
+  preloadSources.forEach((src) => {
+    const preload = new Image();
+    preload.decoding = 'async';
+    preload.src = src;
+
+    if (typeof preload.decode === 'function') {
+      preload.decode().catch(() => {});
+    }
+  });
+
+  const heroImages = Array.from(document.querySelectorAll('.hero-image-wrapper .profile-image'));
+  const predecode = () => {
+    heroImages.forEach((image) => {
+      if (typeof image.decode === 'function') {
+        image.decode().catch(() => {});
+      }
+    });
+  };
+
+  if (typeof window.requestIdleCallback === 'function') {
+    window.requestIdleCallback(predecode, { timeout: 1200 });
+  } else {
+    window.setTimeout(predecode, 300);
+  }
 }
 
 initMobileProjectsLoadMore() {
