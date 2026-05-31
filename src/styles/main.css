@@ -867,7 +867,7 @@ body:not(.dark) .fog-layer-2 {
   opacity: 0;
   overflow: hidden;
   pointer-events: none;
-  transform: translateY(14px);
+  transform: translateY(-14px);
 }
 
 #hero.hero-mobile-reveal-ready .hero-mobile-reveal-item {
@@ -895,12 +895,12 @@ body:not(.dark) .fog-layer-2 {
 @keyframes heroContentReveal {
   0% {
     opacity: 0;
-    transform: translateY(22px) scale(0.98);
+    transform: translateY(-22px) scale(0.98);
     filter: blur(4px);
   }
   60% {
     opacity: 1;
-    transform: translateY(-2px) scale(1.01);
+    transform: translateY(2px) scale(1.01);
     filter: blur(0);
   }
   100% {
