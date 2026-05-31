@@ -300,6 +300,19 @@ body {
   color: #dc2626;
 }
 
+.hero-header-pending {
+  opacity: 0;
+  transform: translateY(-14px);
+  pointer-events: none;
+}
+
+.hero-header-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
 .dark .gradient-text {
   background: linear-gradient(135deg, #dc2626 0%, #ef4444 50%, #dc2626 100%);
   -webkit-background-clip: text;
@@ -848,6 +861,73 @@ body:not(.dark) .fog-layer-2 {
   }
 }
 
+#hero.hero-mobile-reveal-pending .hero-mobile-reveal-item {
+  max-height: 0;
+  margin-bottom: 0 !important;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(14px);
+}
+
+#hero.hero-mobile-reveal-ready .hero-mobile-reveal-item {
+  max-height: 1000px;
+  opacity: 1;
+  overflow: visible;
+  pointer-events: auto;
+  animation: heroContentReveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.hero-header-pending {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+.hero-header-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  animation: heroHeaderReveal 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes heroContentReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.98);
+    filter: blur(4px);
+  }
+  60% {
+    opacity: 1;
+    transform: translateY(-2px) scale(1.01);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: none;
+  }
+}
+
+@keyframes heroHeaderReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(-12px);
+    filter: blur(3px);
+  }
+  65% {
+    opacity: 1;
+    transform: translateY(1px);
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: none;
+  }
+}
+
 @media (max-width: 768px) {
   .tech-bar {
     margin-top: 4rem;
@@ -900,6 +980,16 @@ body:not(.dark) .fog-layer-2 {
     animation: none;
     filter: none;
     transform: none;
+  }
+
+  #hero .hero-mobile-reveal-item {
+    max-height: none;
+    margin-bottom: inherit !important;
+    opacity: 1;
+    overflow: visible;
+    pointer-events: auto;
+    transform: none;
+    transition: none;
   }
 }
 

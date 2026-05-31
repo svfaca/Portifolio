@@ -40,7 +40,7 @@ const translations = {
     'menu.certificacoes': 'Certificações',
     'menu.contato': 'Contato',
     'hero.hello': 'OLÁ',
-    'hero.name': 'Sou Sávio Emmanuel',
+    'hero.name': 'Olá, eu sou Sávio Emmanuel',
     'hero.profession': 'Desenvolvedor de IA Aplicada | Sistemas com LLMs e Automação',
     'hero.downloadcv': 'BAIXAR CV',
     'btn.curriculo': 'VER CURRÍCULO',

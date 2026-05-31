@@ -138,17 +138,17 @@
 
 
     <!-- HERO SECTION -->
-    <section id="hero" class="relative min-h-screen flex items-center justify-center px-6 pt-8 md:pt-24">
+    <section id="hero" class="relative min-h-screen flex items-start justify-center px-6 pt-8 md:pt-24 hero-mobile-reveal-pending">
       <div id="tsparticles" aria-hidden="true"></div>
       <div class="max-w-7xl mx-auto w-full">
-        <div class="flex flex-col lg:grid lg:grid-cols-2 gap-12 items-center animate-fade-in">
+        <div class="flex flex-col lg:grid lg:grid-cols-2 gap-12 lg:items-start animate-fade-in">
           
           <!-- Lado Esquerdo - Apresentação (REORGANIZADO PARA MOBILE) -->
           <div class="flex flex-col justify-center w-full">
             
             <!-- 1º: Nome -->
             <h1 class="order-1 md:order-1 text-5xl md:text-7xl font-bold mb-0 leading-tight text-center md:text-left" data-i18n="hero.name">
-              I'm <span class="highlight-name">Sávio</span> Emmanuel
+              Olá, eu sou <span class="highlight-name">Sávio Emmanuel</span>
             </h1>
             
             <!-- 2º: Foto (Mobile only) -->
@@ -175,7 +175,7 @@
             </div>
             
             <!-- 3º: Logos com links (Mobile) / 8º: Desktop (abaixo do botão) -->
-            <div class="order-8 md:order-8 flex gap-4 mb-4 justify-center md:justify-start">
+            <div class="hero-mobile-reveal-item order-8 md:order-8 flex gap-4 mb-4 justify-center md:justify-start">
               <a href="https://github.com/svfaca" target="_blank" rel="noopener noreferrer" class="w-12 h-12 flex items-center justify-center text-gray-500 hover:text-gray-800 transition-colors" aria-label="GitHub">
                 <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
               </a>
@@ -194,16 +194,16 @@
             </div>
             
             <!-- 4º: Profissão (Mobile) / 2º: Desktop -->
-            <p class="order-4 md:order-2 text-xl md:text-2xl text-gray-600 dark:text-slate-300 font-semibold mb-2 text-center md:text-left" data-i18n="hero.profession">Desenvolvedor de IA Aplicada | Sistemas com LLMs e Automação</p>
+            <p class="hero-mobile-reveal-item order-4 md:order-2 text-xl md:text-2xl text-gray-600 dark:text-slate-300 font-semibold mb-2 text-center md:text-left" data-i18n="hero.profession">Desenvolvedor de IA Aplicada | Sistemas com LLMs e Automação</p>
             
             <!-- 5º: Sobre (Mobile) / 3º: Desktop -->
-            <p id="hero-sobre" class="order-5 md:order-3 text-gray-700 dark:text-slate-50 text-lg mb-2 leading-relaxed max-w-md text-center md:text-left" data-i18n="hero.sobre">Desenvolvo soluções com Inteligência Artificial, integrando modelos de linguagem (LLMs), automação de fluxos e sistemas inteligentes para resolver problemas reais. Experiência em engenharia de prompts, avaliação de respostas de IA e desenvolvimento fullstack.</p>
+            <p id="hero-sobre" class="hero-mobile-reveal-item order-5 md:order-3 text-gray-700 dark:text-slate-50 text-lg mb-2 leading-relaxed max-w-md text-center md:text-left" data-i18n="hero.sobre">Desenvolvo soluções com Inteligência Artificial, integrando modelos de linguagem (LLMs), automação de fluxos e sistemas inteligentes para resolver problemas reais. Experiência em engenharia de prompts, avaliação de respostas de IA e desenvolvimento fullstack.</p>
             
             <!-- 6º: Disponível (Mobile) / 4º: Desktop -->
-            <p class="order-6 md:order-4 text-sm text-gray-500 dark:text-gray-400 mb-3 text-center md:text-left" data-i18n="hero.disponivel">Buscando oportunidades para atuar com IA aplicada, avaliação de modelos e desenvolvimento de sistemas com LLMs.</p>
+            <p class="hero-mobile-reveal-item order-6 md:order-4 text-sm text-gray-500 dark:text-gray-400 mb-3 text-center md:text-left" data-i18n="hero.disponivel">Buscando oportunidades para atuar com IA aplicada, avaliação de modelos e desenvolvimento de sistemas com LLMs.</p>
 
             <!-- 7º: Botão Currículo (Mobile) / 5º: Desktop -->
-            <div class="order-7 md:order-5 flex justify-center md:justify-start">
+            <div class="hero-mobile-reveal-item order-7 md:order-5 flex justify-center md:justify-start">
               <a href="assets/Curriculo.pdf" download class="inline-flex sm:inline-flex flex-col sm:flex-row items-center justify-center gap-2 px-8 py-3 bg-red-600 text-white rounded font-semibold hover:bg-red-700 transition-colors w-full sm:w-auto">
                 <span data-i18n="hero.downloadcv">DOWNLOAD CV</span>
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>

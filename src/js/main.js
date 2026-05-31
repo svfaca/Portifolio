@@ -13,6 +13,7 @@ class Portfolio {
     this.themeObserver = null;
     this.isParticlesDarkTheme = null;
     this.heroImageWrapper = null;
+    this.heroRevealTimer = null;
 
     this.themeManager = new ThemeManager();
     this.navigationManager = new NavigationManager();
@@ -106,6 +107,8 @@ initMobileMenu();
   initHeroPhotoReveal() {
     // Encontra TODAS as wrappers de imagem (mobile + desktop)
     const heroImageWrappers = document.querySelectorAll('.hero-image-wrapper');
+    this.heroSection = document.getElementById('hero');
+    this.heroHeaders = document.querySelectorAll('.hero-header-pending');
 
     if (!heroImageWrappers.length) {
       return;
@@ -120,33 +123,68 @@ initMobileMenu();
       wrapper.classList.remove('hero-photo-visible');
     });
 
+    if (this.heroSection) {
+      this.heroSection.classList.add('hero-mobile-reveal-pending');
+      this.heroSection.classList.remove('hero-mobile-reveal-ready');
+    }
+
+    if (this.heroHeaders.length) {
+      this.heroHeaders.forEach((header) => {
+        header.classList.remove('hero-header-visible');
+      });
+    }
+
     // Encontra o container dos botões (logo + hamburguer) no mobile
     // Já tem mobile-buttons-pending no HTML, só armazena a referência
     this.mobileButtonsContainer = document.getElementById('mobile-nav-buttons');
   }
 
-  revealHeroPhoto() {
-    if (!this.heroImageWrappers || !this.heroImageWrappers.length) {
-      return;
+  revealHeroContent() {
+    if (this.heroSection) {
+      this.heroSection.classList.remove('hero-mobile-reveal-pending');
+      this.heroSection.classList.add('hero-mobile-reveal-ready');
     }
 
-    // Remove classe de pendência de TODAS as wrappers
-    this.heroImageWrappers.forEach(wrapper => {
-      wrapper.classList.remove('hero-photo-pending');
-      wrapper.classList.add('hero-photo-visible');
-    });
+    if (this.heroHeaders && this.heroHeaders.length) {
+      this.heroHeaders.forEach((header) => {
+        header.classList.remove('hero-header-pending');
+        header.classList.add('hero-header-visible');
+      });
+    }
 
-    // Anima os botões em conjunto com a foto
     if (this.mobileButtonsContainer) {
       this.mobileButtonsContainer.classList.remove('mobile-buttons-pending');
       this.mobileButtonsContainer.classList.add('mobile-buttons-visible');
     }
   }
 
+  revealHeroPhoto(delayMs = 1000) {
+    const revealAfterDelay = (timeoutMs) => {
+      if (this.heroRevealTimer) {
+        clearTimeout(this.heroRevealTimer);
+        this.heroRevealTimer = null;
+      }
+
+      this.heroRevealTimer = window.setTimeout(() => {
+        this.heroImageWrappers.forEach((wrapper) => {
+          wrapper.classList.remove('hero-photo-pending');
+          wrapper.classList.add('hero-photo-visible');
+        });
+      }, timeoutMs);
+    };
+
+    if (!this.heroImageWrappers || !this.heroImageWrappers.length) {
+      return;
+    }
+
+    revealAfterDelay(delayMs);
+  }
+
   initHeroTyping() {
     const heroTitle = document.querySelector('[data-i18n="hero.name"]');
 
     if (!heroTitle) {
+      this.revealHeroContent();
       this.revealHeroPhoto();
       return;
     }
@@ -173,7 +211,8 @@ initMobileMenu();
 
     if (prefersReducedMotion) {
       heroTitle.innerHTML = `${prefix}<span class="highlight-name">${name}</span>`;
-      this.revealHeroPhoto();
+      this.revealHeroContent();
+      this.revealHeroPhoto(0);
       return;
     }
 
@@ -187,8 +226,8 @@ initMobileMenu();
       return;
     }
 
-    // Use requestAnimationFrame to drive typing at ~70ms per character
-    const msPerChar = 70;
+    // Use requestAnimationFrame to drive typing at ~95ms per character
+    const msPerChar = 95;
     let lastTimestamp = null;
 
     const step = (timestamp) => {
@@ -205,8 +244,9 @@ initMobileMenu();
       if (currentChar < targetNameLength) {
         window.requestAnimationFrame(step);
       } else {
-        // Typing complete, reveal hero photo
-        this.revealHeroPhoto();
+        // Typing complete, reveal content first and photo after a short delay
+        this.revealHeroContent();
+        this.revealHeroPhoto(1000);
       }
     };
 
