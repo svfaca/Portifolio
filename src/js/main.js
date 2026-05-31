@@ -43,7 +43,7 @@ initMobileMenu();
     if (heroTitle && heroTitle.textContent.trim()) {
       // Elementos já estão traduzidos, inicializa logo
       this.initHeroPhotoReveal();
-      this.initHeroTyping();
+      this.startHeroTypingWhenPageIsVisible();
       this.initProjectCards();
     } else {
       // Aguarda a tradução ser aplicada (com timeout reduzido)
@@ -52,7 +52,7 @@ initMobileMenu();
         if (heroTitle && heroTitle.textContent.trim()) {
           clearInterval(checkInterval);
           this.initHeroPhotoReveal();
-          this.initHeroTyping();
+          this.startHeroTypingWhenPageIsVisible();
           this.initProjectCards();
         }
       }, 20);
@@ -60,6 +60,31 @@ initMobileMenu();
       // Timeout de segurança (máx 1s)
       setTimeout(() => clearInterval(checkInterval), 1000);
     }
+  }
+
+  startHeroTypingWhenPageIsVisible() {
+    const startTyping = () => {
+      if (document.visibilityState !== 'visible') {
+        const handleVisibilityChange = () => {
+          if (document.visibilityState === 'visible') {
+            document.removeEventListener('visibilitychange', handleVisibilityChange);
+            window.requestAnimationFrame(() => this.initHeroTyping());
+          }
+        };
+
+        document.addEventListener('visibilitychange', handleVisibilityChange);
+        return;
+      }
+
+      window.requestAnimationFrame(() => this.initHeroTyping());
+    };
+
+    if (document.readyState === 'complete') {
+      startTyping();
+      return;
+    }
+
+    window.addEventListener('load', startTyping, { once: true });
   }
 
   initScrollReveal() {
