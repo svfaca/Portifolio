@@ -645,10 +645,9 @@
     </footer>
   </div>
   <script>
-    // Lazy-load tsParticles only on non-mobile / non-slow connections
+    // Lazy-load tsParticles only on reduced-data / slow connections
     (function loadTsParticlesIfNeeded() {
       function shouldLoad() {
-        if (window.innerWidth < 768) return false; // skip on small screens
         try {
           const nav = navigator.connection || {};
           if (nav.saveData) return false; // user requested reduced data

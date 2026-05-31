@@ -388,10 +388,9 @@ initMobileMenu();
 
   initHeroParticles() {
     const heroParticlesContainer = document.getElementById('tsparticles');
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
 
     // Evita erros em paginas sem HERO ou sem a lib carregada.
-    if (!heroParticlesContainer || typeof window.tsParticles === 'undefined' || isMobile) {
+    if (!heroParticlesContainer || typeof window.tsParticles === 'undefined') {
       return;
     }
 
@@ -476,7 +475,7 @@ initMobileMenu();
 initProfileToggle() {
   const profiles = document.querySelectorAll('.profile-toggle');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+  const imageCanvasCache = new Map();
 
   const toggleProfile = (profile) => {
     if (profile.classList.contains('animating')) return;
@@ -494,13 +493,67 @@ initProfileToggle() {
     }, 800);
   };
 
+  const getActiveProfileImage = (profile) => {
+    return profile.classList.contains('active')
+      ? profile.querySelector('.profile-image.animated')
+      : profile.querySelector('.profile-image.base');
+  };
+
+  const isOpaqueProfileClick = (profile, event) => {
+    const image = getActiveProfileImage(profile);
+
+    if (!image || !image.complete || image.naturalWidth === 0 || image.naturalHeight === 0) {
+      return true;
+    }
+
+    const rect = image.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) {
+      return true;
+    }
+
+    const relativeX = event.clientX - rect.left;
+    const relativeY = event.clientY - rect.top;
+
+    if (relativeX < 0 || relativeY < 0 || relativeX >= rect.width || relativeY >= rect.height) {
+      return false;
+    }
+
+    const canvasKey = image.currentSrc || image.src;
+    let canvas = imageCanvasCache.get(canvasKey);
+
+    if (!canvas) {
+      canvas = document.createElement('canvas');
+      canvas.width = image.naturalWidth;
+      canvas.height = image.naturalHeight;
+      imageCanvasCache.set(canvasKey, canvas);
+    }
+
+    const context = canvas.getContext('2d', { willReadFrequently: true });
+    if (!context) {
+      return true;
+    }
+
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    context.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+    const pixelX = Math.min(canvas.width - 1, Math.max(0, Math.floor(relativeX * (canvas.width / rect.width))));
+    const pixelY = Math.min(canvas.height - 1, Math.max(0, Math.floor(relativeY * (canvas.height / rect.height))));
+    const pixelData = context.getImageData(pixelX, pixelY, 1, 1).data;
+
+    return pixelData[3] > 0;
+  };
+
   profiles.forEach(profile => {
     // Click manual
-    profile.addEventListener('click', () => {
+    profile.addEventListener('click', (event) => {
+      if (!isOpaqueProfileClick(profile, event)) {
+        return;
+      }
+
       toggleProfile(profile);
     });
 
-    if (prefersReducedMotion || isMobile) {
+    if (prefersReducedMotion) {
       return;
     }
 
