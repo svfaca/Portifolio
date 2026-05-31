@@ -98,11 +98,12 @@ const translations = {
     'contato.cta': 'Vamos conversar sobre seu projeto ou oportunidade?',
     seo: {
       title: 'Sávio Emmanuel | Desenvolvedor Full-Stack e IA Aplicada',
-      description: 'Desenvolvedor focado em IA aplicada, LLMs, automação e desenvolvimento de software moderno.',
+      description: 'Desenvolvedor Full-Stack e Prompt Engineer focado em IA aplicada, LLMs, automação e desenvolvimento de sistemas inteligentes.',
       ogTitle: 'Sávio Emmanuel | Desenvolvedor Full-Stack e IA Aplicada',
-      ogDescription: 'Desenvolvedor focado em IA aplicada, LLMs, automação e desenvolvimento de software moderno.',
+      ogDescription: 'Desenvolvedor Full-Stack e Prompt Engineer focado em IA aplicada, LLMs, automação e desenvolvimento de sistemas inteligentes.',
       twitterTitle: 'Sávio Emmanuel | Desenvolvedor Full-Stack e IA Aplicada',
-      twitterDescription: 'Desenvolvedor focado em IA aplicada, LLMs, automação e desenvolvimento de software moderno.'
+      twitterDescription: 'Desenvolvedor Full-Stack e Prompt Engineer focado em IA aplicada, LLMs, automação e desenvolvimento de sistemas inteligentes.',
+      ogLocale: 'pt_BR'
     }
   },
   en: {
@@ -228,11 +229,12 @@ const translations = {
     'contato.cta': 'Let\'s talk about your project or opportunity?',
     seo: {
       title: 'Sávio Emmanuel | Full-Stack & Applied AI Developer',
-      description: 'Developer focused on applied AI, LLMs, automation and modern software development.',
+      description: 'Full-Stack Developer and Prompt Engineer focused on AI applications, LLMs, automation and intelligent software solutions.',
       ogTitle: 'Sávio Emmanuel | Full-Stack & Applied AI Developer',
-      ogDescription: 'Developer focused on applied AI, LLMs, automation and modern software development.',
+      ogDescription: 'Full-Stack Developer and Prompt Engineer focused on AI applications, LLMs, automation and intelligent software solutions.',
       twitterTitle: 'Sávio Emmanuel | Full-Stack & Applied AI Developer',
-      twitterDescription: 'Developer focused on applied AI, LLMs, automation and modern software development.'
+      twitterDescription: 'Full-Stack Developer and Prompt Engineer focused on AI applications, LLMs, automation and intelligent software solutions.',
+      ogLocale: 'en_US'
     }
   }
 };
@@ -271,6 +273,11 @@ function updateSeoMetadata(lang) {
   if (twitterDescription) {
     twitterDescription.setAttribute('content', seo.twitterDescription || seo.description);
   }
+
+  const ogLocale = document.querySelector('meta[property="og:locale"]');
+  if (ogLocale) {
+    ogLocale.setAttribute('content', seo.ogLocale || (lang === 'en' ? 'en_US' : 'pt_BR'));
+  }
 }
 
 function translatePage(lang) {
@@ -287,7 +294,7 @@ function translatePage(lang) {
       }
     }
   });
-  document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+  document.documentElement.lang = lang === 'en' ? 'en-US' : 'pt-BR';
   updateSeoMetadata(lang);
 }
 
@@ -301,7 +308,7 @@ function initTranslation() {
   const lang = navigator.language || navigator.userLanguage;
   if (lang && lang.toLowerCase().startsWith('en')) {
     translatePage('en');
-    document.documentElement.lang = 'en';
+    document.documentElement.lang = 'en-US';
   } else {
     translatePage('pt');
     document.documentElement.lang = 'pt-BR';
