@@ -95,7 +95,15 @@ const translations = {
     'contato.linkedin': 'LinkedIn',
     'footer.texto': '© 2026 <span id="footer-nome">Sávio Emmanuel</span>. Feito com 💙 e muito código. — <a href="index.html" class="text-emerald-600 hover:underline">Portfólio</a>',
     'contato.desc': 'Fique à vontade para me chamar por e-mail, telefone ou redes sociais!',
-    'contato.cta': 'Vamos conversar sobre seu projeto ou oportunidade?'
+    'contato.cta': 'Vamos conversar sobre seu projeto ou oportunidade?',
+    seo: {
+      title: 'Sávio Emmanuel | Desenvolvedor Full-Stack e IA Aplicada',
+      description: 'Desenvolvedor focado em IA aplicada, LLMs, automação e desenvolvimento de software moderno.',
+      ogTitle: 'Sávio Emmanuel | Desenvolvedor Full-Stack e IA Aplicada',
+      ogDescription: 'Desenvolvedor focado em IA aplicada, LLMs, automação e desenvolvimento de software moderno.',
+      twitterTitle: 'Sávio Emmanuel | Desenvolvedor Full-Stack e IA Aplicada',
+      twitterDescription: 'Desenvolvedor focado em IA aplicada, LLMs, automação e desenvolvimento de software moderno.'
+    }
   },
   en: {
     // Certificações (nomes)
@@ -217,14 +225,57 @@ const translations = {
     'contato.linkedin': 'LinkedIn',
     'footer.texto': '© 2026 <span id="footer-nome">Sávio Emmanuel</span>. Made with 💙 and lots of code. — <a href="index.html" class="text-emerald-600 hover:underline">Portfolio</a>',
     'contato.desc': 'Feel free to contact me by email, phone, or social networks!',
-    'contato.cta': 'Let\'s talk about your project or opportunity?'
+    'contato.cta': 'Let\'s talk about your project or opportunity?',
+    seo: {
+      title: 'Sávio Emmanuel | Full-Stack & Applied AI Developer',
+      description: 'Developer focused on applied AI, LLMs, automation and modern software development.',
+      ogTitle: 'Sávio Emmanuel | Full-Stack & Applied AI Developer',
+      ogDescription: 'Developer focused on applied AI, LLMs, automation and modern software development.',
+      twitterTitle: 'Sávio Emmanuel | Full-Stack & Applied AI Developer',
+      twitterDescription: 'Developer focused on applied AI, LLMs, automation and modern software development.'
+    }
   }
 };
 
 let currentLang = 'pt';
 
+function updateSeoMetadata(lang) {
+  const seo = (translations[lang] && translations[lang].seo) || translations.pt.seo;
+  if (!seo) {
+    return;
+  }
+
+  document.title = seo.title;
+
+  const metaDescription = document.querySelector('meta[name="description"]');
+  if (metaDescription) {
+    metaDescription.setAttribute('content', seo.description);
+  }
+
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if (ogTitle) {
+    ogTitle.setAttribute('content', seo.ogTitle || seo.title);
+  }
+
+  const ogDescription = document.querySelector('meta[property="og:description"]');
+  if (ogDescription) {
+    ogDescription.setAttribute('content', seo.ogDescription || seo.description);
+  }
+
+  const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+  if (twitterTitle) {
+    twitterTitle.setAttribute('content', seo.twitterTitle || seo.title);
+  }
+
+  const twitterDescription = document.querySelector('meta[name="twitter:description"]');
+  if (twitterDescription) {
+    twitterDescription.setAttribute('content', seo.twitterDescription || seo.description);
+  }
+}
+
 function translatePage(lang) {
   currentLang = lang;
+  window.currentLang = lang;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
     if (translations[lang] && translations[lang][key]) {
@@ -236,6 +287,8 @@ function translatePage(lang) {
       }
     }
   });
+  document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+  updateSeoMetadata(lang);
 }
 
 window.translatePage = translatePage;

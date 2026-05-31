@@ -363,6 +363,11 @@ initMobileMenu();
   }
 
   loadHeroParticlesByTheme() {
+    // Se a biblioteca ainda não estiver carregada, não tenta inicializar
+    if (typeof window.tsParticles === 'undefined') {
+      return;
+    }
+
     const isDarkTheme = document.documentElement.classList.contains('dark');
 
     if (this.heroParticlesInstance && this.isParticlesDarkTheme === isDarkTheme) {
@@ -390,18 +395,25 @@ initMobileMenu();
     const heroParticlesContainer = document.getElementById('tsparticles');
 
     // Evita erros em paginas sem HERO ou sem a lib carregada.
-    if (!heroParticlesContainer || typeof window.tsParticles === 'undefined') {
+    if (!heroParticlesContainer) {
       return;
     }
 
-    this.loadHeroParticlesByTheme();
+    // Tenta carregar agora se a lib já estiver disponível
+    if (typeof window.tsParticles !== 'undefined') {
+      this.loadHeroParticlesByTheme();
+    }
 
+    // Garante que o observer de tema exista mesmo que a lib ainda não tenha carregado.
     if (!this.themeObserver) {
       this.themeObserver = new MutationObserver((mutations) => {
         const hasClassMutation = mutations.some((mutation) => mutation.attributeName === 'class');
 
         if (hasClassMutation) {
-          this.loadHeroParticlesByTheme();
+          // Só tenta recarregar quando a lib estiver disponível
+          if (typeof window.tsParticles !== 'undefined') {
+            this.loadHeroParticlesByTheme();
+          }
         }
       });
 
