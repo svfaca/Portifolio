@@ -940,7 +940,7 @@ body:not(.dark) .fog-layer-2 {
 
 @media (max-width: 768px) {
   .hero-image-wrapper {
-    max-width: 320px;
+    max-width: 380px;
     transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
   }
 
