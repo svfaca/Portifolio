@@ -1,6 +1,8 @@
 // src/js/translate.js
 // Sistema simples de tradução manual PT/EN
 
+import { applyLocalizedSeo, getLanguageFromPath, getPageKey } from './seo.js';
+
 const translations = {
   pt: {
     // Certificações (nomes)
@@ -247,37 +249,11 @@ function updateSeoMetadata(lang) {
     return;
   }
 
-  document.title = seo.title;
-
-  const metaDescription = document.querySelector('meta[name="description"]');
-  if (metaDescription) {
-    metaDescription.setAttribute('content', seo.description);
-  }
-
-  const ogTitle = document.querySelector('meta[property="og:title"]');
-  if (ogTitle) {
-    ogTitle.setAttribute('content', seo.ogTitle || seo.title);
-  }
-
-  const ogDescription = document.querySelector('meta[property="og:description"]');
-  if (ogDescription) {
-    ogDescription.setAttribute('content', seo.ogDescription || seo.description);
-  }
-
-  const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-  if (twitterTitle) {
-    twitterTitle.setAttribute('content', seo.twitterTitle || seo.title);
-  }
-
-  const twitterDescription = document.querySelector('meta[name="twitter:description"]');
-  if (twitterDescription) {
-    twitterDescription.setAttribute('content', seo.twitterDescription || seo.description);
-  }
-
-  const ogLocale = document.querySelector('meta[property="og:locale"]');
-  if (ogLocale) {
-    ogLocale.setAttribute('content', seo.ogLocale || (lang === 'en' ? 'en_US' : 'pt_BR'));
-  }
+  applyLocalizedSeo({
+    pageKey: getPageKey(),
+    lang,
+    seo
+  });
 }
 
 function translatePage(lang) {
@@ -305,14 +281,8 @@ window.translations = translations;
 
 // Função para aplicar tradução e mostrar página
 function initTranslation() {
-  const lang = navigator.language || navigator.userLanguage;
-  if (lang && lang.toLowerCase().startsWith('en')) {
-    translatePage('en');
-    document.documentElement.lang = 'en-US';
-  } else {
-    translatePage('pt');
-    document.documentElement.lang = 'pt-BR';
-  }
+  const lang = getLanguageFromPath('pt');
+  translatePage(lang);
   // Mostra a página após tradução ser aplicada
   document.documentElement.style.visibility = 'visible';
   document.documentElement.style.opacity = '1';

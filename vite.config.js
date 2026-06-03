@@ -10,7 +10,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: path.resolve(__dirname, 'index.html'),
-        atenaai: path.resolve(__dirname, 'AtenaAI/index.html')
+        atenaai: path.resolve(__dirname, 'AtenaAI/index.html'),
+        mainEn: path.resolve(__dirname, 'en/index.html'),
+        atenaaiEn: path.resolve(__dirname, 'en/AtenaAI/index.html')
       },
       output: {
         assetFileNames: 'assets/[name]-[hash][extname]'

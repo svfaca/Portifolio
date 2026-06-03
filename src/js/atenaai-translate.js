@@ -1,23 +1,13 @@
 import { i18n } from './atenaai-i18n.js';
+import { applyLocalizedSeo, getLanguageFromPath, getPageKey } from './seo.js';
 window.i18n = i18n;
 
 function getUserLang() {
-  // If user explicitly selected a language, respect it
-  try {
-    const pref = localStorage.getItem('atenaai-lang');
-    if (pref === 'pt' || pref === 'en') return pref;
-  } catch (e) {
-    // ignore
-  }
-  const lang = navigator.language || navigator.userLanguage;
-  if (lang && (lang.startsWith('pt') || lang === 'pt-BR')) {
-    return 'pt';
-  }
-  return 'en';
+  return 'pt';
 }
 
 function translatePage() {
-  const lang = getUserLang();
+  const lang = getLanguageFromPath(getUserLang());
   const dict = i18n[lang] || i18n.en;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
@@ -29,6 +19,21 @@ function translatePage() {
   if (dict['header.title']) {
     document.title = dict['header.title'];
   }
+
+  applyLocalizedSeo({
+    pageKey: getPageKey(),
+    lang,
+    seo: {
+      title: dict['header.title'],
+      description: dict['about.description'] || dict['hero.subtitle'],
+      ogTitle: dict['header.title'],
+      ogDescription: dict['about.description'] || dict['hero.subtitle'],
+      twitterTitle: dict['header.title'],
+      twitterDescription: dict['about.description'] || dict['hero.subtitle'],
+      ogLocale: lang === 'en' ? 'en_US' : 'pt_BR'
+    }
+  });
+
   // Traduzir o label Telefone se existir
   const phoneLabel = document.querySelector('[data-i18n="contact.phone"]');
   if (phoneLabel && dict['contact.phone']) {
