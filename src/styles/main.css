@@ -1075,28 +1075,25 @@ body:not(.dark) .fog-layer-2 {
 .profile-toggle .base {
   z-index: 2;
   opacity: 1;
+  transform: scale(1);
 }
 
 .profile-toggle .animated {
   z-index: 3;
   opacity: 0;
-  transform: scale(0.95);
+  transform: scale(1);
 }
 
 .profile-toggle.active .base {
   opacity: 0;
-  transform: scale(1.05);
+  transform: scale(1);
 }
 
 .profile-toggle.active .animated {
   opacity: 1;
   transform: scale(1);
 }
-/* quando ativo, mata a animação da base */
-.profile-toggle.active .base {
-  opacity: 0 !important;
-  animation: none !important;
-}
+
 
 
 /* ativa animação */
