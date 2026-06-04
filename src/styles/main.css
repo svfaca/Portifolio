@@ -1094,6 +1094,14 @@ body:not(.dark) .fog-layer-2 {
   transform: scale(1);
 }
 
+/* Garantir que a imagem base fique escondida quando o toggle estiver ativo
+   (resolve conflito com a animação de reveal que força opacity:1) */
+.profile-toggle.active .base {
+  opacity: 0 !important;
+  animation: none !important;
+  pointer-events: none;
+}
+
 
 
 /* ativa animação */
