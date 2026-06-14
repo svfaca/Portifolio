@@ -941,13 +941,13 @@ body:not(.dark) .fog-layer-2 {
 @media (max-width: 768px) {
   .hero-image-wrapper {
     max-width: 380px;
-    transition: opacity 0.45s ease, transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    transition: opacity 0.55s ease, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), filter 0.55s ease;
   }
 
   .hero-image-wrapper.hero-photo-pending {
     opacity: 0;
-    transform: translateY(18px) scale(0.97);
-    filter: none;
+    transform: translateY(28px) scale(0.94);
+    filter: saturate(0.7) contrast(1.08);
   }
 
   .hero-image-wrapper.hero-photo-visible {
@@ -955,7 +955,7 @@ body:not(.dark) .fog-layer-2 {
   }
 
   .hero-image-wrapper.hero-photo-visible .profile-image.base {
-    animation: profileTeleportRevealMobile 0.88s cubic-bezier(0.16, 1, 0.3, 1) both;
+    animation: profileTeleportReveal 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
   .hero-image-wrapper::before {
